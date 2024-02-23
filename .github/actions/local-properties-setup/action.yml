@@ -1,0 +1,15 @@
+name: Setup local.properties file
+description: Setup local.properties file
+
+inputs:
+  tmdb-api-key:
+    description: The TMDB API secret
+    required: true
+
+runs:
+  using: composite
+  steps:
+
+    - name: Append tmdb.api.key to local.properties
+      shell: bash
+      run: echo "tmdb.api.key=${{ inputs.tmdb-api-key }}" > local.properties

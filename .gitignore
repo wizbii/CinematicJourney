@@ -1,0 +1,17 @@
+!*.xcodeproj/project.pbxproj
+!*.xcodeproj/project.xcworkspace/
+!*.xcodeproj/xcshareddata/
+!*.xcworkspace/contents.xcworkspacedata
+**/xcshareddata/WorkspaceSettings.xcsettings
+.DS_Store
+.gradle
+.idea
+/build/
+/xcode/build
+captures
+local.properties
+xcode/*.app.dSYM.zip
+xcode/*.ipa
+xcode/fastlane/report.xml
+xcode/fastlane/test_output
+xcuserdata

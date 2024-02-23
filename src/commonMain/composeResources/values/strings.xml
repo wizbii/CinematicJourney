@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<resources>
+
+    <!-- Common strings -->
+
+    <string name="app_name">Cinematic Journey</string>
+
+    <!-- LocalDate.Month localized names -->
+    <string name="month_01">January</string>
+    <string name="month_02">February</string>
+    <string name="month_03">March</string>
+    <string name="month_04">April</string>
+    <string name="month_05">May</string>
+    <string name="month_06">June</string>
+    <string name="month_07">July</string>
+    <string name="month_08">August</string>
+    <string name="month_09">September</string>
+    <string name="month_10">October</string>
+    <string name="month_11">November</string>
+    <string name="month_12">December</string>
+
+    <!-- Universe names -->
+    <string name="universe_name_dceu">DC Extended Universe</string>
+    <string name="universe_name_mcu">Marvel Cinematic Universe</string>
+
+    <!-- Component-specific strings -->
+
+    <!-- Movie -->
+    <string name="movie_prerequisites_zero">No prerequisites!</string>
+    <string name="movie_prerequisites_one">Prerequisite:</string>
+    <string name="movie_prerequisites_other">Prerequisites:</string>
+
+    <!-- TopBar -->
+    <string name="topbar_dark_mode">Dark mode</string>
+    <string name="topbar_light_mode">Light mode</string>
+
+    <!-- Universes -->
+    <string name="universes_ongoing">Ongoing</string>
+    <string name="universes_title">Universes</string>
+
+    <!-- TODO Use somewhere -->
+    <string name="tmdb_attribution">This application uses TMDB and the TMDB APIs but is not endorsed, certified, or otherwise approved by TMDB.</string>
+
+</resources>

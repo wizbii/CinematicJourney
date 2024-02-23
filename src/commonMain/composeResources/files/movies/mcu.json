@@ -1,0 +1,295 @@
+[
+  {
+    "id": "iron-man",
+    "originalDate": "2008-04-30",
+    "originalTitle": "Iron Man",
+    "prerequisites": [],
+    "tmdbId": 1726
+  },
+  {
+    "id": "hulk",
+    "originalDate": "2008-06-12",
+    "originalTitle": "The Incredible Hulk",
+    "prerequisites": [],
+    "tmdbId": 1724
+  },
+  {
+    "id": "iron-man-2",
+    "originalDate": "2010-04-28",
+    "originalTitle": "Iron Man 2",
+    "prerequisites": [
+      "iron-man"
+    ],
+    "tmdbId": 10138
+  },
+  {
+    "id": "thor",
+    "originalDate": "2011-04-21",
+    "originalTitle": "Thor",
+    "prerequisites": [],
+    "tmdbId": 10195
+  },
+  {
+    "id": "captain-america",
+    "originalDate": "2011-07-22",
+    "originalTitle": "Captain America: The First Avenger",
+    "prerequisites": [],
+    "tmdbId": 1771
+  },
+  {
+    "id": "avengers",
+    "originalDate": "2012-04-25",
+    "originalTitle": "The Avengers",
+    "prerequisites": [
+      "captain-america",
+      "hulk",
+      "iron-man-2",
+      "thor"
+    ],
+    "tmdbId": 24428
+  },
+  {
+    "id": "iron-man-3",
+    "originalDate": "2013-04-18",
+    "originalTitle": "Iron Man 3",
+    "prerequisites": [
+      "avengers"
+    ],
+    "tmdbId": 68721
+  },
+  {
+    "id": "thor-2",
+    "originalDate": "2013-10-30",
+    "originalTitle": "Thor: The Dark World",
+    "prerequisites": [
+      "avengers"
+    ],
+    "tmdbId": 76338
+  },
+  {
+    "id": "captain-america-2",
+    "originalDate": "2014-03-20",
+    "originalTitle": "Captain America: The Winter Soldier",
+    "prerequisites": [
+      "avengers"
+    ],
+    "tmdbId": 100402
+  },
+  {
+    "id": "guardians-of-the-galaxy",
+    "originalDate": "2014-07-30",
+    "originalTitle": "Guardians of the Galaxy",
+    "prerequisites": [],
+    "tmdbId": 118340
+  },
+  {
+    "id": "avengers-2",
+    "originalDate": "2015-04-22",
+    "originalTitle": "Avengers: Age of Ultron",
+    "prerequisites": [
+      "avengers",
+      "captain-america-2",
+      "guardians-of-the-galaxy",
+      "iron-man-3",
+      "thor-2"
+    ],
+    "tmdbId": 99861
+  },
+  {
+    "id": "ant-man",
+    "originalDate": "2015-07-17",
+    "originalTitle": "Ant-Man",
+    "prerequisites": [],
+    "tmdbId": 102899
+  },
+  {
+    "id": "captain-america-3",
+    "originalDate": "2016-05-06",
+    "originalTitle": "Captain America: Civil War",
+    "prerequisites": [
+      "ant-man",
+      "avengers-2"
+    ],
+    "tmdbId": 271110
+  },
+  {
+    "id": "doctor-strange",
+    "originalDate": "2016-11-04",
+    "originalTitle": "Doctor Strange",
+    "prerequisites": [],
+    "tmdbId": 284052
+  },
+  {
+    "id": "guardians-of-the-galaxy-2",
+    "originalDate": "2017-05-05",
+    "originalTitle": "Guardians of the Galaxy Vol.2",
+    "prerequisites": [
+      "guardians-of-the-galaxy"
+    ],
+    "tmdbId": 283995
+  },
+  {
+    "id": "spider-man",
+    "originalDate": "2017-07-07",
+    "originalTitle": "Spider-Man: Homecoming",
+    "prerequisites": [
+      "captain-america-3"
+    ],
+    "tmdbId": 315635
+  },
+  {
+    "id": "thor-3",
+    "originalDate": "2017-11-03",
+    "originalTitle": "Thor: Ragnarok",
+    "prerequisites": [
+      "avengers-2",
+      "doctor-strange",
+      "thor-2"
+    ],
+    "tmdbId": 284053
+  },
+  {
+    "id": "black-panther",
+    "originalDate": "2018-02-16",
+    "originalTitle": "Black Panther",
+    "prerequisites": [
+      "captain-america-3"
+    ],
+    "tmdbId": 284054
+  },
+  {
+    "id": "avengers-3",
+    "originalDate": "2018-04-27",
+    "originalTitle": "Avengers: Infinity War",
+    "prerequisites": [
+      "avengers-2",
+      "black-panther",
+      "captain-america-3",
+      "guardians-of-the-galaxy-2",
+      "spider-man",
+      "thor-3"
+    ],
+    "tmdbId": 299536
+  },
+  {
+    "id": "ant-man-2",
+    "originalDate": "2018-07-06",
+    "originalTitle": "Ant-Man and the Wasp",
+    "prerequisites": [
+      "captain-america-3"
+    ],
+    "tmdbId": 363088
+  },
+  {
+    "id": "captain-marvel",
+    "originalDate": "2019-03-08",
+    "originalTitle": "Captain Marvel",
+    "prerequisites": [],
+    "tmdbId": 299537
+  },
+  {
+    "id": "avengers-4",
+    "originalDate": "2019-04-26",
+    "originalTitle": "Avengers: Endgame",
+    "prerequisites": [
+      "ant-man-2",
+      "avengers-3",
+      "captain-marvel"
+    ],
+    "tmdbId": 299534
+  },
+  {
+    "id": "spider-man-2",
+    "originalDate": "2019-07-02",
+    "originalTitle": "Spider-Man: Far From Home",
+    "prerequisites": [
+      "avengers-4"
+    ],
+    "tmdbId": 429617
+  },
+  {
+    "id": "black-widow",
+    "originalDate": "2021-07-09",
+    "originalTitle": "Black Widow",
+    "prerequisites": [],
+    "tmdbId": 497698
+  },
+  {
+    "id": "shang-chi",
+    "originalDate": "2021-09-03",
+    "originalTitle": "Shang-Chi and the Legend of the Ten Rings",
+    "prerequisites": [],
+    "tmdbId": 566525
+  },
+  {
+    "id": "eternals",
+    "originalDate": "2021-11-05",
+    "originalTitle": "Eternals",
+    "prerequisites": [],
+    "tmdbId": 524434
+  },
+  {
+    "id": "spider-man-3",
+    "originalDate": "2021-12-17",
+    "originalTitle": "Spider-Man: No Way Home",
+    "prerequisites": [
+      "spider-man-2"
+    ],
+    "tmdbId": 634649
+  },
+  {
+    "id": "doctor-strange-2",
+    "originalDate": "2022-05-06",
+    "originalTitle": "Doctor Strange in the Multiverse of Madness",
+    "prerequisites": [
+      "doctor-strange",
+      "spider-man-3"
+    ],
+    "tmdbId": 453395
+  },
+  {
+    "id": "thor-4",
+    "originalDate": "2022-07-08",
+    "originalTitle": "Thor: Love and Thunder",
+    "prerequisites": [
+      "avengers-4"
+    ],
+    "tmdbId": 616037
+  },
+  {
+    "id": "black-panther-2",
+    "originalDate": "2022-11-11",
+    "originalTitle": "Black Panther: Wakanda Forever",
+    "prerequisites": [
+      "avengers-4"
+    ],
+    "tmdbId": 505642
+  },
+  {
+    "id": "ant-man-3",
+    "originalDate": "2023-02-17",
+    "originalTitle": "Ant-Man and the Wasp: Quantumania",
+    "prerequisites": [
+      "avengers-4"
+    ],
+    "tmdbId": 640146
+  },
+  {
+    "id": "guardians-of-the-galaxy-3",
+    "originalDate": "2023-05-05",
+    "originalTitle": "Guardians of the Galaxy Vol. 3",
+    "prerequisites": [
+      "avengers-4"
+    ],
+    "tmdbId": 447365
+  },
+  {
+    "id": "the-marvels",
+    "originalDate": "2023-11-10",
+    "originalTitle": "The Marvels",
+    "prerequisites": [
+      "avengers-4"
+    ],
+    "tmdbId": 609681
+  }
+]

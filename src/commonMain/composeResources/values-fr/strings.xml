@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<resources>
+
+    <!-- Common strings -->
+
+    <!-- LocalDate.Month localized names -->
+    <string name="month_01">Janvier</string>
+    <string name="month_02">Février</string>
+    <string name="month_03">Mars</string>
+    <string name="month_04">Avril</string>
+    <string name="month_05">Mai</string>
+    <string name="month_06">Juin</string>
+    <string name="month_07">Juillet</string>
+    <string name="month_08">Août</string>
+    <string name="month_09">Septembre</string>
+    <string name="month_10">Octobre</string>
+    <string name="month_11">Novembre</string>
+    <string name="month_12">Décembre</string>
+
+    <!-- Universe names -->
+    <string name="universe_name_dceu">Univers Étendu DC</string>
+    <string name="universe_name_mcu">Univers Cinématographique Marvel</string>
+
+    <!-- Component-specific strings -->
+
+    <!-- Movie -->
+    <string name="movie_prerequisites_zero">Aucun prérequis !</string>
+    <string name="movie_prerequisites_one">Prérequis:</string>
+    <string name="movie_prerequisites_other">Prérequis:</string>
+
+    <!-- TopBar -->
+    <string name="topbar_dark_mode">Mode sombre</string>
+    <string name="topbar_light_mode">Mode clair</string>
+
+    <!-- Universes -->
+    <string name="universes_ongoing">En cours</string>
+    <string name="universes_title">Univers</string>
+
+    <!-- TODO Use somewhere -->
+    <string name="tmdb_attribution">Cette application utilise TMDB et les API de TMDB, mais elle n'est pas avalisée, certifiée ou approuvée de quelque manière que ce soit par TMDB.</string>
+
+</resources>

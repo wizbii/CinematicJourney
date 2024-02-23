@@ -1,0 +1,18 @@
+import com.wizbii.cinematic.journey.domain.entity.MovieId;
+
+CREATE TABLE prerequisiteRecord(
+    movieId TEXT AS MovieId NOT NULL,
+    prerequisiteMovieId TEXT AS MovieId NOT NULL,
+    PRIMARY KEY (movieId, prerequisiteMovieId),
+    FOREIGN KEY (movieId) REFERENCES movieRecord(id) ON DELETE CASCADE,
+    FOREIGN KEY (prerequisiteMovieId) REFERENCES movieRecord(id) ON DELETE CASCADE
+);
+
+createPrerequisiteIfNotExist:
+    INSERT OR IGNORE INTO prerequisiteRecord
+    VALUES (?, ?);
+
+readPrerequisites:
+    SELECT prerequisiteMovieId
+    FROM prerequisiteRecord
+    WHERE movieId = ?;

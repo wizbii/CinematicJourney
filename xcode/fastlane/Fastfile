@@ -1,0 +1,17 @@
+# https://docs.fastlane.tools/advanced/Fastfile
+
+default_platform(:ios)
+xcodes(
+    version: "15.2",
+    select_for_current_build_only: true,
+)
+
+platform :ios do
+    lane :beta do
+        setup_ci if is_ci
+        match(type: "appstore", readonly: is_ci)
+        build_ios_app(xcodebuild_formatter: "")
+        app_store_connect_api_key
+        upload_to_testflight(skip_waiting_for_build_processing: true)
+    end
+end

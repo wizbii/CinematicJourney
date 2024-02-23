@@ -1,0 +1,7 @@
+# https://docs.fastlane.tools/actions/match
+
+app_identifier("com.wizbii.cinematic.journey")
+git_url("https://gitlab.com/wizbii/mobile/fastlane-certificates.git")
+storage_mode("git")
+type("development")
+username("dev@wizbii.com")

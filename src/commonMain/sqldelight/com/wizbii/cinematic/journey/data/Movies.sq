@@ -1,0 +1,75 @@
+import com.wizbii.cinematic.journey.domain.entity.MovieId;
+import com.wizbii.cinematic.journey.domain.entity.TmdbMovieId;
+import com.wizbii.cinematic.journey.domain.entity.UniverseId;
+import kotlin.Boolean;
+import kotlin.Int;
+import kotlinx.datetime.Instant;
+import kotlinx.datetime.LocalDate;
+import kotlinx.datetime.LocalDateTime;
+
+CREATE TABLE movieRecord (
+
+    -- Json values
+    id TEXT AS MovieId NOT NULL PRIMARY KEY,
+    originalTitle TEXT NOT NULL,
+    releaseDate TEXT AS LocalDate NOT NULL,
+    tmdbId INTEGER AS TmdbMovieId UNIQUE NOT NULL,
+    universeId TEXT AS UniverseId NOT NULL,
+
+    -- Dynamic values
+    watched INTEGER AS Boolean NOT NULL DEFAULT 0,
+
+    -- Keys
+    FOREIGN KEY (universeId) REFERENCES universeRecord(id) ON DELETE CASCADE
+
+);
+
+CREATE INDEX idx_movies_universeId ON movieRecord(universeId);
+
+createOrUpdateMovie {
+
+    -- Updates if exists
+    -- Does nothing if missing
+    UPDATE movieRecord
+    SET originalTitle = :originalTitle,
+        releaseDate = :releaseDate,
+        tmdbId = :tmdbId,
+        universeId = :universeId
+    WHERE id = :id;
+
+    -- Inserts if missing
+    -- Does nothing if exists
+    INSERT OR IGNORE INTO movieRecord(id, originalTitle, releaseDate, tmdbId, universeId)
+    VALUES (
+        :id,
+        :originalTitle,
+        :releaseDate,
+        :tmdbId,
+        :universeId
+    );
+
+}
+
+readMovieById:
+    SELECT *
+    FROM movieRecord
+    WHERE id = ?;
+
+readMovies:
+    SELECT *
+    FROM movieRecord;
+
+readMoviesByUniverseId:
+    SELECT *
+    FROM movieRecord
+    WHERE universeId = ?;
+
+readUniverseDateRange:
+    SELECT MIN(releaseDate) AS startDate, MAX(releaseDate) AS endDate
+    FROM movieRecord
+    WHERE universeId = ?;
+
+updateMovieWatched:
+    UPDATE movieRecord
+    SET watched = ?
+    WHERE id = ?;

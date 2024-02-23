@@ -1,0 +1,81 @@
+import com.wizbii.cinematic.journey.domain.entity.TmdbMovieId;
+import kotlin.Int;
+import kotlinx.datetime.Instant;
+import kotlinx.datetime.LocalDate;
+
+CREATE TABLE tmdbMovieRecord (
+
+    -- Identifiers
+    id INTEGER AS TmdbMovieId NOT NULL,
+    language TEXT NOT NULL,
+
+    -- TMDB Data
+    backdropPath TEXT,
+    fetchDate INTEGER AS Instant NOT NULL,
+    overview TEXT,
+    posterPath TEXT,
+    releaseDate TEXT AS LocalDate NOT NULL,
+    runtime INTEGER AS Int,
+    tagline TEXT,
+    title TEXT,
+
+    -- Keys
+    PRIMARY KEY (id, language),
+    FOREIGN KEY (id) REFERENCES movieRecord(tmdbId) ON DELETE CASCADE
+
+);
+
+createOrUpdateTmdbMovie {
+
+    -- Updates if exists
+    -- Does nothing if missing
+    UPDATE tmdbMovieRecord
+    SET backdropPath = :backdropPath,
+        fetchDate = :fetchDate,
+        overview = :overview,
+        posterPath = :posterPath,
+        releaseDate = :releaseDate,
+        runtime = :runtime,
+        tagline = :tagline,
+        title = :title
+    WHERE id = :id
+      AND language = :language;
+
+    -- Inserts if missing
+    -- Does nothing if exists
+    INSERT OR IGNORE INTO tmdbMovieRecord(
+        id,
+        language,
+        backdropPath,
+        fetchDate,
+        overview,
+        posterPath,
+        releaseDate,
+        runtime,
+        tagline,
+        title
+    )
+    VALUES (
+        :id,
+        :language,
+        :backdropPath,
+        :fetchDate,
+        :overview,
+        :posterPath,
+        :releaseDate,
+        :runtime,
+        :tagline,
+        :title
+    );
+
+}
+
+readTmdbMovie:
+    SELECT *
+    FROM tmdbMovieRecord
+    WHERE id = :id
+      AND language = :language;
+
+deleteTmdbMoviesOlderThan:
+    DELETE FROM tmdbMovieRecord
+    WHERE fetchDate < ?;

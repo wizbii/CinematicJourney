@@ -1,0 +1,126 @@
+[
+  {
+    "id": "man-of-steel",
+    "originalDate": "2013-06-12",
+    "originalTitle": "Man of Steel",
+    "prerequisites": [],
+    "tmdbId": 49521
+  },
+  {
+    "id": "batman-v-superman",
+    "originalDate": "2016-03-23",
+    "originalTitle": "Batman v Superman: Dawn of Justice",
+    "prerequisites": [
+      "man-of-steel"
+    ],
+    "tmdbId": 209112
+  },
+  {
+    "id": "suicide-squad",
+    "originalDate": "2016-08-03",
+    "originalTitle": "Suicide Squad",
+    "prerequisites": [],
+    "tmdbId": 297761
+  },
+  {
+    "id": "wonder-woman",
+    "originalDate": "2017-05-30",
+    "originalTitle": "Wonder Woman",
+    "prerequisites": [],
+    "tmdbId": 297762
+  },
+  {
+    "id": "justice-league",
+    "originalDate": "2017-11-15",
+    "originalTitle": "Justice League",
+    "prerequisites": [
+      "batman-v-superman",
+      "wonder-woman"
+    ],
+    "tmdbId": 141052
+  },
+  {
+    "id": "aquaman",
+    "originalDate": "2018-12-07",
+    "originalTitle": "Aquaman",
+    "prerequisites": [
+      "justice-league"
+    ],
+    "tmdbId": 297802
+  },
+  {
+    "id": "shazam",
+    "originalDate": "2019-03-29",
+    "originalTitle": "Shazam!",
+    "prerequisites": [],
+    "tmdbId": 287947
+  },
+  {
+    "id": "birds-of-prey",
+    "originalDate": "2020-02-05",
+    "originalTitle": "Birds of Prey (and the Fantabulous Emancipation of One Harley Quinn)",
+    "prerequisites": [
+      "suicide-squad"
+    ],
+    "tmdbId": 495764
+  },
+  {
+    "id": "wonder-woman-2",
+    "originalDate": "2020-12-16",
+    "originalTitle": "Wonder Woman 1984",
+    "prerequisites": [
+      "wonder-woman"
+    ],
+    "tmdbId": 464052
+  },
+  {
+    "id": "suicide-squad-2",
+    "originalDate": "2021-07-28",
+    "originalTitle": "The Suicide Squad",
+    "prerequisites": [
+      "suicide-squad"
+    ],
+    "tmdbId": 436969
+  },
+  {
+    "id": "black-adam",
+    "originalDate": "2022-10-19",
+    "originalTitle": "Black Adam",
+    "prerequisites": [],
+    "tmdbId": 436270
+  },
+  {
+    "id": "shazam-2",
+    "originalDate": "2023-03-15",
+    "originalTitle": "Shazam! Fury of the Gods",
+    "prerequisites": [
+      "shazam"
+    ],
+    "tmdbId": 594767
+  },
+  {
+    "id": "flash",
+    "originalDate": "2023-06-13",
+    "originalTitle": "The Flash",
+    "prerequisites": [
+      "justice-league"
+    ],
+    "tmdbId": 298618
+  },
+  {
+    "id": "blue-beetle",
+    "originalDate": "2023-08-16",
+    "originalTitle": "Blue Beetle",
+    "prerequisites": [],
+    "tmdbId": 565770
+  },
+  {
+    "id": "aquaman-2",
+    "originalDate": "2023-12-20",
+    "originalTitle": "Aquaman and the Lost Kingdom",
+    "prerequisites": [
+      "aquaman"
+    ],
+    "tmdbId": 572802
+  }
+]

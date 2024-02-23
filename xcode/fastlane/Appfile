@@ -1,0 +1,6 @@
+# https://docs.fastlane.tools/advanced/Appfile
+
+app_identifier("com.wizbii.cinematic.journey")
+apple_id("dev@wizbii.com")
+itc_team_id("117959693")
+team_id("8ZTRZ74U4B")
