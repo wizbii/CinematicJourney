@@ -282,7 +282,6 @@
 				CLANG_ENABLE_MODULES = YES;
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				CODE_SIGN_STYLE = Manual;
-				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = "";
 				"DEVELOPMENT_TEAM[sdk=iphoneos*]" = 8ZTRZ74U4B;
 				ENABLE_PREVIEWS = YES;
@@ -299,7 +298,6 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 0.1.0;
 				PRODUCT_BUNDLE_IDENTIFIER = com.wizbii.cinematic.journey;
 				PRODUCT_NAME = "Cinematic Journey";
 				PROVISIONING_PROFILE_SPECIFIER = "match Development com.wizbii.cinematic.journey";
@@ -323,7 +321,6 @@
 				CODE_SIGN_IDENTITY = "Apple Development";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution";
 				CODE_SIGN_STYLE = Manual;
-				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = "";
 				"DEVELOPMENT_TEAM[sdk=iphoneos*]" = 8ZTRZ74U4B;
 				ENABLE_PREVIEWS = YES;
@@ -340,7 +337,6 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 0.1.0;
 				PRODUCT_BUNDLE_IDENTIFIER = com.wizbii.cinematic.journey;
 				PRODUCT_NAME = "Cinematic Journey";
 				PROVISIONING_PROFILE_SPECIFIER = "match AppStore com.wizbii.cinematic.journey";

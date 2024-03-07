@@ -4,6 +4,10 @@
 <dict>
 	<key>CADisableMinimumFrameDurationOnPhone</key>
 	<true/>
+	<key>CFBundleVersion</key>
+	<string>2</string>
+	<key>CFBundleShortVersionString</key>
+	<string>0.0.2-SNAPSHOT</string>
 	<key>ITSAppUsesNonExemptEncryption</key>
 	<false/>
 	<key>UIApplicationSceneManifest</key>
