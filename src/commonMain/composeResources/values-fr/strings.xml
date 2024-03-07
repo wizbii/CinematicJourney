@@ -29,6 +29,7 @@
     <string name="movie_prerequisites_other">Prérequis:</string>
 
     <!-- TopBar -->
+    <string name="topbar_back">Retour</string>
     <string name="topbar_dark_mode">Mode sombre</string>
     <string name="topbar_light_mode">Mode clair</string>
 
