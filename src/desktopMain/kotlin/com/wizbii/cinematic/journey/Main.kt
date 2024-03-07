@@ -15,6 +15,9 @@ import com.wizbii.cinematic.journey.presentation.screen.root.DefaultRootComponen
 import com.wizbii.cinematic.journey.presentation.screen.root.Root
 import com.wizbii.cinematicjourney.generated.resources.Res
 import com.wizbii.cinematicjourney.generated.resources.app_name
+import kotlinx.coroutines.Dispatchers
+import kotlinx.coroutines.runBlocking
+import kotlinx.coroutines.withContext
 import org.jetbrains.compose.resources.ExperimentalResourceApi
 import org.jetbrains.compose.resources.stringResource
 import org.koin.core.context.startKoin
@@ -24,7 +27,7 @@ private const val DEFAULT_WIDTH = 360
 private const val DEFAULT_HEIGHT = 600
 
 @OptIn(ExperimentalResourceApi::class)
-fun main() {
+fun main() = runBlocking {
 
     Logger.setLogWriters(Slf4jLogWriter())
 
@@ -32,7 +35,9 @@ fun main() {
 
     val lifecycle = LifecycleRegistry()
     val ctx = DefaultComponentContext(lifecycle)
-    val rootComponent = DefaultRootComponent(ctx)
+    val rootComponent = withContext(Dispatchers.Main) {
+        DefaultRootComponent(ctx)
+    }
 
     application {
 
