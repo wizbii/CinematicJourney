@@ -4,6 +4,12 @@
 
 _Track your cinematic journey through interconnected movies_
 
+<p align="middle">
+  <img src="../media/screenshot-1.png?raw=true" width="32%" />
+  <img src="../media/screenshot-2.png?raw=true" width="32%" /> 
+  <img src="../media/screenshot-3.png?raw=true" width="32%" />
+</p>
+
 ## Goal
 
 This project aims to demonstrate how to make a
