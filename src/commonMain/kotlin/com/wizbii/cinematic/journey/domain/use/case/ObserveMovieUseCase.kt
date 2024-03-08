@@ -9,7 +9,6 @@ import kotlinx.coroutines.flow.Flow
 import kotlinx.coroutines.flow.combine
 import kotlinx.coroutines.flow.flatMapLatest
 import kotlinx.coroutines.flow.flowOf
-import kotlinx.datetime.Instant
 
 class ObserveMovieUseCase(
     private val movieRepository: MovieRepository,
@@ -22,12 +21,10 @@ class ObserveMovieUseCase(
             .getMovie(movieId)
             .flatMapLatest { localMovie ->
                 flowOf(localMovie).combine(
-                    flow = tmdbRepository
-                        .getLocalTmdbMovie(
-                            id = localMovie.tmdbId,
-                            language = language,
-                            maxFetchDate = Instant.DISTANT_PAST
-                        ),
+                    flow = tmdbRepository.getLocalTmdbMovie(
+                        id = localMovie.tmdbId,
+                        language = language,
+                    ),
                     transform = ::Movie,
                 )
             }

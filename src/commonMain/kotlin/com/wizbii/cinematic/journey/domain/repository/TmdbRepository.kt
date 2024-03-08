@@ -11,7 +11,11 @@ interface TmdbRepository {
 
     suspend fun getTmdbBackdropUrlForWidth(backdropPath: String, width: Int): String
 
-    suspend fun getLocalTmdbMovie(id: TmdbMovieId, language: String, maxFetchDate: Instant): Flow<TmdbMovie?>
+    suspend fun getLocalTmdbMovie(
+        id: TmdbMovieId,
+        language: String,
+        maxFetchDate: Instant = Instant.DISTANT_PAST,
+    ): Flow<TmdbMovie?>
 
     suspend fun getRemoteTmdbMovie(id: TmdbMovieId, language: String): TmdbMovie
 
