@@ -67,8 +67,6 @@ kotlin {
     targets.filterIsInstance<KotlinNativeTarget>().forEach { ios ->
         ios.binaries.framework {
             baseName = "ComposeApp"
-            export(libs.decompose)
-            export(libs.essenty.lifecycle)
         }
         sourceSets.configureEach {
             languageSettings {
