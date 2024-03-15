@@ -1,9 +1,11 @@
 name: CI
 
 on:
-  push:
-    tags:
-      - '[0-9]+.[0-9]+.[0-9]+'
+  workflow_call:
+    inputs:
+      isRelease:
+        required: true
+        type: boolean
 
 jobs:
 
@@ -41,22 +43,28 @@ jobs:
       - name: Setup local.properties
         uses: ./.github/actions/local-properties-setup
         with:
+          android-upload-keystore-passphrase: ${{ secrets.UPLOAD_KEYSTORE_JKS_PASSPHRASE }}
           tmdb-api-key: ${{ secrets.TMDB_API_KEY }}
       - name: Build App
         shell: bash
-        run: ./gradlew assembleRelease bundleRelease --no-daemon
-      - name: Upload APK (.apk)
-        uses: actions/upload-artifact@v4
+        run: ./gradlew packageReleaseBundle --no-daemon
+      - if: ${{ inputs.isRelease }}
+        name: Setup upload-keystore.jks
+        uses: ./.github/actions/upload-keystore-setup
         with:
-          name: android-apk
-          path: build/outputs/apk/release/CinematicJourney-release.apk
-          compression-level: 0
-      - name: Upload Bundle (.aab)
-        uses: actions/upload-artifact@v4
+          upload-keystore-jks-base64: ${{ secrets.UPLOAD_KEYSTORE_JKS_BASE64 }}
+      - if: ${{ inputs.isRelease }}
+        name: Sign App
+        shell: bash
+        run: ./gradlew signReleaseBundle --no-daemon
+      - if: ${{ inputs.isRelease }}
+        name: Publish App
+        uses: r0adkll/upload-google-play@v1
         with:
-          name: android-bundle
-          path: build/outputs/bundle/release/CinematicJourney-release.aab
-          compression-level: 0
+          packageName: com.wizbii.cinematic.journey
+          releaseFiles: build/outputs/bundle/release/CinematicJourney-release.aab
+          serviceAccountJsonPlainText: ${{ secrets.GOOGLE_SERVICE_ACCOUNT_JSON }}
+          track: qa
 
   build-desktop:
     strategy:
@@ -87,7 +95,8 @@ jobs:
       - name: Build App
         shell: bash
         run: ./gradlew packageReleaseUberJarForCurrentOS --no-daemon
-      - name: Upload Jar
+      - if: ${{ inputs.isRelease }}
+        name: Upload Jar
         uses: actions/upload-artifact@v4
         with:
           name: desktop-${{ matrix.os }}
@@ -118,7 +127,17 @@ jobs:
       - name: Apply Gradle Build version to XCode project
         shell: bash
         run: ./gradlew setXcodeVersion --no-daemon
-      - name: Build & Publish App
+      - if: ${{ ! inputs.isRelease }}
+        name: Build App
+        shell: bash
+        env:
+          MATCH_PASSWORD: ${{ secrets.MATCH_PASSWORD }}
+        run: |
+          cd xcode
+          bundle install
+          bundle exec fastlane build
+      - if: ${{ inputs.isRelease }}
+        name: Build & Publish App
         shell: bash
         env:
           APP_STORE_CONNECT_API_KEY_ISSUER_ID: ${{ secrets.APP_STORE_CONNECT_API_KEY_ISSUER_ID }}

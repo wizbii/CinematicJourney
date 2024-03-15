@@ -10,6 +10,7 @@
 /xcode/build
 captures
 local.properties
+upload-keystore.jks
 xcode/*.app.dSYM.zip
 xcode/*.ipa
 xcode/fastlane/report.xml

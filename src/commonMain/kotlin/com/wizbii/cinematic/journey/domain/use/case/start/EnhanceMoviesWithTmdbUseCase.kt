@@ -17,13 +17,12 @@ class EnhanceMoviesWithTmdbUseCase(
     suspend operator fun invoke(language: String) = withContext(Dispatchers.Default) {
 
         val now = Clock.System.now()
-        val maxAge = now - TmdbMovie.cacheDuration
-        tmdbRepository.cleanupOldTmdbMovies(olderThan = maxAge)
+        tmdbRepository.cleanupOldTmdbMovies(olderThan = now - TmdbMovie.cacheDuration * 4)
 
         val localMovies = movieRepository.getMovies().first()
         localMovies.forEach { localMovie ->
             val localTmdbMovie = tmdbRepository
-                .getLocalTmdbMovie(id = localMovie.tmdbId, language = language, maxFetchDate = maxAge)
+                .getLocalTmdbMovie(id = localMovie.tmdbId, language = language, maxFetchDate = now - TmdbMovie.cacheDuration)
                 .firstOrNull()
             if (localTmdbMovie != null) return@forEach
             val remoteTmdbMovie = tmdbRepository.getRemoteTmdbMovie(id = localMovie.tmdbId, language = language)

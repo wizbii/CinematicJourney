@@ -8,7 +8,7 @@ val artifactId = "cinematic.journey"
 val groupId = "com.wizbii"
 val packageId = "$groupId.$artifactId"
 
-val appVersionName = "0.0.3"
+val appVersionName = "0.0.4"
 val appVersionCode = appVersionName
     .removeSuffix("-SNAPSHOT")
     .split('.')
@@ -16,6 +16,8 @@ val appVersionCode = appVersionName
         it.padStart(3, '0')
     }
     .toInt()
+
+val localProperties = gradleLocalProperties(rootDir)
 
 group = groupId
 version = appVersionName
@@ -67,8 +69,6 @@ kotlin {
     targets.filterIsInstance<KotlinNativeTarget>().forEach { ios ->
         ios.binaries.framework {
             baseName = "ComposeApp"
-            export(libs.decompose)
-            export(libs.essenty.lifecycle)
         }
         sourceSets.configureEach {
             languageSettings {
@@ -108,7 +108,6 @@ buildConfig {
 
     packageName = packageId
 
-    val localProperties = gradleLocalProperties(rootDir)
     buildConfigField(
         name = "TMDB_API_KEY",
         value = localProperties.getProperty("tmdb.api.key"),
@@ -138,6 +137,13 @@ android {
 
     }
 
+    signingConfigs.create("release") {
+        storeFile = file("upload-keystore.jks")
+        storePassword = localProperties.getProperty("android.upload.keystore.passphrase")
+        keyAlias = "upload"
+        keyPassword = localProperties.getProperty("android.upload.keystore.passphrase")
+    }
+
     compileOptions {
         val javaVersion = JavaVersion.toVersion(libs.versions.java.get())
         sourceCompatibility = javaVersion
@@ -146,7 +152,7 @@ android {
 
     buildTypes {
         getByName("release") {
-            signingConfig = signingConfigs.getByName("debug")
+            signingConfig = signingConfigs.getByName("release")
         }
     }
 

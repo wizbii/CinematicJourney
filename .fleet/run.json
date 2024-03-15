@@ -1,0 +1,26 @@
+{
+    "configurations": [
+        {
+            "type": "android-app",
+            "name": "Run Android",
+            "module": "CinematicJourney.main",
+        },
+        {
+            "type": "gradle",
+            "name": "Run Desktop",
+            "tasks": [
+                "desktopRun"
+            ],
+        },
+        {
+            "type": "xcode-app",
+            "name": "Run iOS",
+            "buildTarget": {
+                "project": "CinematicJourney",
+                "target": "CinematicJourney",
+            },
+            "configuration": "Release",
+            "workingDir": "xcode/",
+        },
+    ]
+}

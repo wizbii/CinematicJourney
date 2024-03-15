@@ -1,7 +1,7 @@
 [versions]
 
 # Languages
-kotlin = "1.9.22"
+kotlin = "1.9.23"
 java = "17"
 
 # Tools
@@ -10,7 +10,7 @@ gradle = "8.6"
 # Plugins
 agp = "8.2.2"
 build-config = "5.3.5"
-compose = "1.6.0"
+compose = "1.6.1"
 kotlinx-atomicfu = "0.21.0"
 versions = "0.51.0"
 
@@ -21,20 +21,20 @@ android-sdk-target = "34"
 
 # Libraries
 androidx-activity-compose = "1.8.2"
-androidx-datastore = "1.1.0-beta01"
-decompose = "3.0.0-alpha08"
+androidx-datastore = "1.1.0-beta02"
+decompose = "3.0.0-alpha09"
 essenty = "2.0.0-alpha07"
-kamel-image = "0.9.3"
+kamel-image = "0.9.4"
 kermit = "2.0.3"
 koin = "3.5.3"
-konsist = "0.13.0"
+konsist = "0.14.0"
 kotlinx-coroutines = "1.8.0"
 kotlinx-datetime = "0.5.0"
 kotlinx-serialization = "1.6.3"
 ktor = "2.3.9"
 logback = "1.5.3"
-material-kolor = "1.4.3"
-okio = "3.8.0"
+material-kolor = "1.4.4"
+okio = "3.9.0"
 sqldelight = "2.0.1"
 
 [plugins]

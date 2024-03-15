@@ -4,6 +4,12 @@
 
 _Track your cinematic journey through interconnected movies_
 
+<p align="middle">
+  <img src="../media/screenshot-1.png?raw=true" width="32%" />
+  <img src="../media/screenshot-2.png?raw=true" width="32%" /> 
+  <img src="../media/screenshot-3.png?raw=true" width="32%" />
+</p>
+
 ## Goal
 
 This project aims to demonstrate how to make a
@@ -43,6 +49,21 @@ Run gradle task `desktopRun` from your IDE or terminal:
 ```bash
 ./gradlew desktopRun
 ```
+
+## Release
+
+As an example, to release version `1.2.3`:
+
+1. Be on `develop` branch with no changes
+2. Run `git flow release start 1.2.3`
+3. Change `appVersionName` in `build.gradle.kts` to `1.2.3`
+4. Apply that version to the XCode project by running `./gradlew setXcodeVersion`
+5. Commit the changes with message `Set version to 1.2.3 for release`
+6. Run `git flow release finish`, use `1.2.3` as tag message when asked
+7. Change `appVersionName` in `build.gradle.kts` to `1.2.4-SNAPSHOT`
+8. Apply that version to the XCode project by running `./gradlew setXcodeVersion`
+9. Commit the changes with message `Set version to 1.2.4-SNAPSHOT for development`
+10. Push everything to origin with `git push --all && git push --tags`
 
 ## Attribution
 

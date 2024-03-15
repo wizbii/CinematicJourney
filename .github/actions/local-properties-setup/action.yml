@@ -2,6 +2,9 @@ name: Setup local.properties file
 description: Setup local.properties file
 
 inputs:
+  android-upload-keystore-passphrase:
+    description: The passphrase of the upload-keystore.jks file
+    required: false
   tmdb-api-key:
     description: The TMDB API secret
     required: true
@@ -10,6 +13,11 @@ runs:
   using: composite
   steps:
 
+    - name: Append android.upload.keystore.passphrase to local.properties
+      shell: bash
+      if: ${{ inputs.android-upload-keystore-passphrase != '' }}
+      run: printf "android.upload.keystore.passphrase=${{ inputs.android-upload-keystore-passphrase }}\n" > local.properties
+
     - name: Append tmdb.api.key to local.properties
       shell: bash
-      run: echo "tmdb.api.key=${{ inputs.tmdb-api-key }}" > local.properties
+      run: printf "tmdb.api.key=${{ inputs.tmdb-api-key }}\n" > local.properties
