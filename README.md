@@ -22,7 +22,7 @@ with [Compose Multiplatform](https://www.jetbrains.com/lp/compose-multiplatform/
 ## Requirements
 
 * IntelliJ IDEA / Android Studio / Fleet, with Android SDK
-* XCode 15.2 for the iOS app
+* XCode 15.3 for the iOS app
 
 ## Setup
 
@@ -43,7 +43,7 @@ Open the project in IntelliJ IDEA, Android Studio or Fleet and run the generated
 
 ### iOS
 
-Open the XCode project using XCode 15.2 and run the target.
+Open the XCode project using XCode 15.3 and run the target.
 
 ### JVM / Desktop
 

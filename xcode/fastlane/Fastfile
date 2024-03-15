@@ -2,7 +2,7 @@
 
 default_platform(:ios)
 xcodes(
-    version: "15.2",
+    version: "15.3",
     select_for_current_build_only: true,
 )
 
