@@ -17,6 +17,8 @@ val appVersionCode = appVersionName
     }
     .toInt()
 
+val localProperties = gradleLocalProperties(rootDir)
+
 group = groupId
 version = appVersionName
 
@@ -106,7 +108,6 @@ buildConfig {
 
     packageName = packageId
 
-    val localProperties = gradleLocalProperties(rootDir)
     buildConfigField(
         name = "TMDB_API_KEY",
         value = localProperties.getProperty("tmdb.api.key"),
@@ -136,6 +137,13 @@ android {
 
     }
 
+    signingConfigs.create("release") {
+        storeFile = file("upload-keystore.jks")
+        storePassword = localProperties.getProperty("android.upload.keystore.passphrase")
+        keyAlias = "upload"
+        keyPassword = localProperties.getProperty("android.upload.keystore.passphrase")
+    }
+
     compileOptions {
         val javaVersion = JavaVersion.toVersion(libs.versions.java.get())
         sourceCompatibility = javaVersion
@@ -144,7 +152,7 @@ android {
 
     buildTypes {
         getByName("release") {
-            signingConfig = signingConfigs.getByName("debug")
+            signingConfig = signingConfigs.getByName("release")
         }
     }
 

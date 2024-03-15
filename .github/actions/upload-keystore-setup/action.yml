@@ -1,0 +1,18 @@
+name: Setup local.properties file
+description: Setup local.properties file
+
+inputs:
+  upload-keystore-jks-base64:
+    description: Base64-encoded upload-keystore.jks file
+    required: true
+
+runs:
+  using: composite
+  steps:
+
+    - name: Create upload-keystore.jks file from Base64 encoded String
+      shell: bash
+      run: |
+        printf "${{ inputs.upload-keystore-jks-base64 }}" > upload-keystore.jks.b64
+        base64 -d upload-keystore.jks.b64 > upload-keystore.jks
+        rm upload-keystore.jks.b64
