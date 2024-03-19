@@ -52,18 +52,28 @@ Run gradle task `desktopRun` from your IDE or terminal:
 
 ## Release
 
-As an example, to release version `1.2.3`:
+To release a new version of the app, make sure you're on the `develop` git branch then run one of the following
+commands:
 
-1. Be on `develop` branch with no changes
-2. Run `git flow release start 1.2.3`
-3. Change `appVersionName` in `build.gradle.kts` to `1.2.3`
-4. Apply that version to the XCode project by running `./gradlew setXcodeVersion`
-5. Commit the changes with message `Set version to 1.2.3 for release`
-6. Run `git flow release finish`, use `1.2.3` as tag message when asked
-7. Change `appVersionName` in `build.gradle.kts` to `1.2.4-SNAPSHOT`
-8. Apply that version to the XCode project by running `./gradlew setXcodeVersion`
-9. Commit the changes with message `Set version to 1.2.4-SNAPSHOT for development`
-10. Push everything to origin with `git push --all && git push --tags`
+```bash
+# Release (will use current -SNAPSHOT version number) then increment fix number for subsequent snapshots
+./release.sh
+```
+
+```bash
+# Release with a specific version number, then increment fix number for subsequent snapshots
+# Use this to release a new minor or major version
+./release.sh 1.2.3
+```
+
+The script will automatically run the release process:
+
+- New Gitflow release with the appropriate name
+- Changes to `build.gradle.kts` and XCode project
+- Commits to various branches
+- Backmerge into `develop`
+
+You should be immediately ready to continue working on the project after running the release script.
 
 ## Attribution
 
