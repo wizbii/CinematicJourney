@@ -64,7 +64,7 @@ jobs:
           packageName: com.wizbii.cinematic.journey
           releaseFiles: build/outputs/bundle/release/CinematicJourney-release.aab
           serviceAccountJsonPlainText: ${{ secrets.GOOGLE_SERVICE_ACCOUNT_JSON }}
-          track: alpha
+          track: beta
 
   build-desktop:
     strategy:
