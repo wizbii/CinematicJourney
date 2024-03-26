@@ -164,6 +164,8 @@ class TmdbApiDataSource {
         val runtime: Int,
         val tagline: String?,
         val title: String,
+        val voteAverage: Float?,
+        val voteCount: Int,
     )
 
     class TmdbMovieNotFoundException(id: TmdbMovieId) :

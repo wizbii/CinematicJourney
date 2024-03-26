@@ -1,6 +1,7 @@
 package com.wizbii.cinematic.journey.data
 
 import app.cash.sqldelight.ColumnAdapter
+import app.cash.sqldelight.adapter.primitive.FloatColumnAdapter
 import app.cash.sqldelight.adapter.primitive.IntColumnAdapter
 import app.cash.sqldelight.db.SqlDriver
 import com.wizbii.cinematic.journey.domain.entity.MovieId
@@ -24,10 +25,11 @@ fun DatabaseWithAdapters(driver: SqlDriver): Database =
             prerequisiteMovieIdAdapter = MovieIdAdapter,
         ),
         tmdbMovieRecordAdapter = TmdbMovieRecord.Adapter(
-            fetchDateAdapter = InstantAdapter,
             idAdapter = TmdbMovieIdAdapter,
+            fetchDateAdapter = InstantAdapter,
             releaseDateAdapter = LocalDateAdapter,
             runtimeAdapter = IntColumnAdapter,
+            voteAverageAdapter = FloatColumnAdapter,
         ),
         universeRecordAdapter = UniverseRecord.Adapter(
             idAdapter = UniverseIdAdapter,

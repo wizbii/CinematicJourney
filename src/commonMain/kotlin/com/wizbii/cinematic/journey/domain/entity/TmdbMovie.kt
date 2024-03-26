@@ -14,6 +14,7 @@ data class TmdbMovie(
     val runtime: Int?,
     val tagline: String?,
     val title: String?,
+    val voteAverage: Float?,
 ) {
 
     companion object {
