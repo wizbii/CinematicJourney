@@ -24,6 +24,7 @@ class PreviewMoviesComponent : MoviesComponent {
                 prerequisitesIds = emptySet(),
                 releaseDate = LocalDate.parse("2008-04-30"),
                 runtime = -1,
+                score = null,
                 tagline = null,
                 title = "Iron Man",
                 tmdbId = TmdbMovieId(-1),
