@@ -73,6 +73,8 @@ jobs:
         name: Publish App
         uses: r0adkll/upload-google-play@v1
         with:
+          debugSymbols: build/intermediates/merged_native_libs/release/out/lib/
+          mappingFile: build/outputs/mapping/release/mapping.txt
           packageName: com.wizbii.cinematic.journey
           releaseFiles: build/outputs/bundle/release/CinematicJourney-release.aab
           serviceAccountJsonPlainText: ${{ secrets.GOOGLE_SERVICE_ACCOUNT_JSON }}

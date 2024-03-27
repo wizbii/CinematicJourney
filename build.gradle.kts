@@ -8,7 +8,7 @@ val artifactId = "cinematic.journey"
 val groupId = "com.wizbii"
 val packageId = "$groupId.$artifactId"
 
-val appVersionName = "0.0.8"
+val appVersionName = "0.0.9"
 val appVersionCode = appVersionName
     .removeSuffix("-SNAPSHOT")
     .split('.')
@@ -151,7 +151,10 @@ android {
     }
 
     buildTypes {
-        getByName("release") {
+        release {
+            isMinifyEnabled = true
+            isShrinkResources = true
+            proguardFiles(getDefaultProguardFile("proguard-android-optimize.txt"))
             signingConfig = signingConfigs.getByName("release")
         }
     }
