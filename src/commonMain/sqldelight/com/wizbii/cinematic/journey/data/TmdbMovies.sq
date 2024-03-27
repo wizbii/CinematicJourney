@@ -1,4 +1,5 @@
 import com.wizbii.cinematic.journey.domain.entity.TmdbMovieId;
+import kotlin.Float;
 import kotlin.Int;
 import kotlinx.datetime.Instant;
 import kotlinx.datetime.LocalDate;
@@ -18,6 +19,7 @@ CREATE TABLE tmdbMovieRecord (
     runtime INTEGER AS Int,
     tagline TEXT,
     title TEXT,
+    voteAverage REAL AS Float,
 
     -- Keys
     PRIMARY KEY (id, language),
@@ -37,7 +39,8 @@ createOrUpdateTmdbMovie {
         releaseDate = :releaseDate,
         runtime = :runtime,
         tagline = :tagline,
-        title = :title
+        title = :title,
+        voteAverage = :voteAverage
     WHERE id = :id
       AND language = :language;
 
@@ -53,7 +56,8 @@ createOrUpdateTmdbMovie {
         releaseDate,
         runtime,
         tagline,
-        title
+        title,
+        voteAverage
     )
     VALUES (
         :id,
@@ -65,7 +69,8 @@ createOrUpdateTmdbMovie {
         :releaseDate,
         :runtime,
         :tagline,
-        :title
+        :title,
+        :voteAverage
     );
 
 }

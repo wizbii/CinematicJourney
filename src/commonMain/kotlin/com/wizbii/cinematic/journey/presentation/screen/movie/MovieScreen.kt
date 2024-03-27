@@ -4,6 +4,7 @@ import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.BoxWithConstraints
 import androidx.compose.foundation.layout.Column
+import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.height
@@ -13,8 +14,11 @@ import androidx.compose.foundation.layout.width
 import androidx.compose.foundation.layout.wrapContentSize
 import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.material.icons.Icons
+import androidx.compose.material.icons.automirrored.outlined.StarHalf
 import androidx.compose.material.icons.filled.Check
 import androidx.compose.material.icons.filled.Visibility
+import androidx.compose.material.icons.outlined.Theaters
+import androidx.compose.material.icons.outlined.Timer
 import androidx.compose.material3.CardDefaults
 import androidx.compose.material3.ElevatedCard
 import androidx.compose.material3.FilledIconToggleButton
@@ -32,6 +36,7 @@ import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.alpha
 import androidx.compose.ui.graphics.RectangleShape
+import androidx.compose.ui.graphics.vector.ImageVector
 import androidx.compose.ui.input.nestedscroll.nestedScroll
 import androidx.compose.ui.layout.ContentScale
 import androidx.compose.ui.platform.LocalDensity
@@ -49,6 +54,7 @@ import com.wizbii.cinematic.journey.presentation.component.MovieListItem
 import com.wizbii.cinematic.journey.presentation.component.RemoteImage
 import com.wizbii.cinematic.journey.presentation.component.scrollbar.ColumnWithScrollbar
 import com.wizbii.cinematic.journey.presentation.component.top.bar.TopBarContent
+import com.wizbii.cinematic.journey.presentation.util.toString
 import com.wizbii.cinematic.journey.whenPlatform
 import com.wizbii.cinematicjourney.generated.resources.Res
 import com.wizbii.cinematicjourney.generated.resources.movie_prerequisites_one
@@ -383,7 +389,7 @@ private fun TitleColumn(
     val runtime = remember(movie.runtime) {
         movie.runtime?.let { minutes ->
             "${minutes / 60}h${minutes.rem(60).toString().padStart(2, '0')}"
-        } ?: "    "
+        }
     }
 
     Column(
@@ -402,12 +408,65 @@ private fun TitleColumn(
             textAlign = TextAlign.Center,
         )
 
+        Row(
+            horizontalArrangement = Arrangement.spacedBy(8.dp, Alignment.CenterHorizontally),
+            modifier = Modifier.fillMaxWidth(),
+        ) {
+
+            Chip(
+                icon = Icons.Outlined.Theaters,
+                text = movie.releaseDate.year.toString(),
+            )
+
+            runtime?.let { runtime ->
+
+                Chip(
+                    icon = Icons.Outlined.Timer,
+                    text = runtime,
+                )
+
+            }
+
+            movie.score?.let { score ->
+
+                Chip(
+                    icon = Icons.AutoMirrored.Outlined.StarHalf,
+                    text = score.toString(1),
+                )
+
+            }
+
+        }
+
+    }
+
+}
+
+@Composable
+private fun Chip(
+    icon: ImageVector,
+    text: String,
+) {
+
+    val iconSize = with(LocalDensity.current) {
+        MaterialTheme.typography.bodyMedium.lineHeight.times(.9).toDp()
+    }
+
+    Row(
+        horizontalArrangement = Arrangement.spacedBy(2.dp),
+        verticalAlignment = Alignment.CenterVertically,
+    ) {
+
+        Icon(
+            contentDescription = null,
+            imageVector = icon,
+            modifier = Modifier.size(iconSize),
+        )
+
         Text(
             maxLines = 1,
-            modifier = Modifier.fillMaxWidth(),
             style = MaterialTheme.typography.bodyMedium.copy(fontWeight = Light),
-            text = "${movie.releaseDate.year}  $runtime",
-            textAlign = TextAlign.Center,
+            text = text,
         )
 
     }

@@ -13,17 +13,22 @@ jobs:
     name: 'Test: Desktop'
     runs-on: ubuntu-latest
     steps:
+
       - name: Checkout
         uses: actions/checkout@v4
+
       - name: Setup Gradle
         uses: ./.github/actions/gradle-setup
+
       - name: Setup local.properties
         uses: ./.github/actions/local-properties-setup
         with:
           tmdb-api-key: ${{ secrets.TMDB_API_KEY }}
+
       - name: Test
         shell: bash
         run: ./gradlew desktopTest --no-daemon
+
       - name: Upload reports
         uses: actions/upload-artifact@v4
         with:
@@ -36,27 +41,34 @@ jobs:
     needs: test-desktop
     runs-on: ubuntu-latest
     steps:
+
       - name: Checkout
         uses: actions/checkout@v4
+
       - name: Setup Gradle
         uses: ./.github/actions/gradle-setup
+
       - name: Setup local.properties
         uses: ./.github/actions/local-properties-setup
         with:
           android-upload-keystore-passphrase: ${{ secrets.UPLOAD_KEYSTORE_JKS_PASSPHRASE }}
           tmdb-api-key: ${{ secrets.TMDB_API_KEY }}
+
       - name: Build App
         shell: bash
         run: ./gradlew packageReleaseBundle --no-daemon
+
       - if: ${{ inputs.isRelease }}
         name: Setup upload-keystore.jks
         uses: ./.github/actions/upload-keystore-setup
         with:
           upload-keystore-jks-base64: ${{ secrets.UPLOAD_KEYSTORE_JKS_BASE64 }}
+
       - if: ${{ inputs.isRelease }}
         name: Sign App
         shell: bash
         run: ./gradlew signReleaseBundle --no-daemon
+
       - if: ${{ inputs.isRelease }}
         name: Publish App
         uses: r0adkll/upload-google-play@v1
@@ -64,7 +76,7 @@ jobs:
           packageName: com.wizbii.cinematic.journey
           releaseFiles: build/outputs/bundle/release/CinematicJourney-release.aab
           serviceAccountJsonPlainText: ${{ secrets.GOOGLE_SERVICE_ACCOUNT_JSON }}
-          track: alpha
+          track: beta
 
   build-desktop:
     strategy:
@@ -84,17 +96,22 @@ jobs:
     needs: test-desktop
     runs-on: ${{ matrix.runs-on }}
     steps:
+
       - name: Checkout
         uses: actions/checkout@v4
+
       - name: Setup Gradle
         uses: ./.github/actions/gradle-setup
+
       - name: Setup local.properties
         uses: ./.github/actions/local-properties-setup
         with:
           tmdb-api-key: ${{ secrets.TMDB_API_KEY }}
+
       - name: Build App
         shell: bash
         run: ./gradlew packageReleaseUberJarForCurrentOS --no-daemon
+
       - if: ${{ inputs.isRelease }}
         name: Upload Jar
         uses: actions/upload-artifact@v4
@@ -108,25 +125,32 @@ jobs:
     needs: test-desktop
     runs-on: macos-14
     steps:
+
       - name: Checkout
         uses: actions/checkout@v4
+
       - name: Setup Gitlab Access
         uses: ./.github/actions/gitlab-access-setup
         with:
           gitlab-access-token: ${{ secrets.GITLAB_PERSONAL_ACCESS_TOKEN }}
+
       - name: Setup Gradle
         uses: ./.github/actions/gradle-setup
+
       - name: Setup local.properties
         uses: ./.github/actions/local-properties-setup
         with:
           tmdb-api-key: ${{ secrets.TMDB_API_KEY }}
+
       - name: Setup XCode
         uses: maxim-lobanov/setup-xcode@v1
         with:
           xcode-version: 15.2
+
       - name: Apply Gradle Build version to XCode project
         shell: bash
         run: ./gradlew setXcodeVersion --no-daemon
+
       - if: ${{ ! inputs.isRelease }}
         name: Build App
         shell: bash
@@ -136,6 +160,7 @@ jobs:
           cd xcode
           bundle install
           bundle exec fastlane build
+
       - if: ${{ inputs.isRelease }}
         name: Build & Publish App
         shell: bash

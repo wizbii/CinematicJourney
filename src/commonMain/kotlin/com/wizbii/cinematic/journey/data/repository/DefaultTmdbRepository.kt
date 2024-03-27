@@ -44,6 +44,7 @@ class DefaultTmdbRepository(
                     runtime = tmdbMovieRecord.runtime,
                     tagline = tmdbMovieRecord.tagline,
                     title = tmdbMovieRecord.title,
+                    voteAverage = tmdbMovieRecord.voteAverage,
                 )
             }
 
@@ -58,6 +59,7 @@ class DefaultTmdbRepository(
                 runtime = details.runtime,
                 tagline = details.tagline,
                 title = details.title,
+                voteAverage = details.voteAverage,
             )
         }
 
@@ -76,6 +78,7 @@ class DefaultTmdbRepository(
             runtime = tmdbMovie.runtime,
             tagline = tmdbMovie.tagline,
             title = tmdbMovie.title,
+            voteAverage = tmdbMovie.voteAverage,
         )
     }
 

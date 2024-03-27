@@ -5,7 +5,7 @@ kotlin = "1.9.23"
 java = "17"
 
 # Tools
-gradle = "8.6"
+gradle = "8.7"
 
 # Plugins
 agp = "8.2.2"
