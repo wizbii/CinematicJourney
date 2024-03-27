@@ -35,6 +35,7 @@ ktor = "2.3.9"
 logback = "1.5.3"
 material-kolor = "1.4.4"
 okio = "3.9.0"
+slf4j-android = "2.0.12-0"
 sqldelight = "2.0.1"
 
 [plugins]
@@ -89,6 +90,7 @@ common-test = [
 android-main = [
     "androidx-activity-compose",
     "ktor-client-okhttp",
+    "slf4j-android",
     "sqldelight-android",
 ]
 
@@ -160,6 +162,8 @@ logback-classic = { module = "ch.qos.logback:logback-classic", version.ref = "lo
 material-kolor = { module = "com.materialkolor:material-kolor", version.ref = "material-kolor" }
 
 okio = { module = "com.squareup.okio:okio", version.ref = "okio" }
+
+slf4j-android = { module = "uk.uuid.slf4j:slf4j-android", version.ref = "slf4j-android" }
 
 sqldelight-android = { module = "app.cash.sqldelight:android-driver", version.ref = "sqldelight" }
 sqldelight-coroutines = { module = "app.cash.sqldelight:coroutines-extensions", version.ref = "sqldelight" }
