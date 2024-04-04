@@ -21,13 +21,13 @@ android-sdk-target = "34"
 
 # Libraries
 androidx-activity-compose = "1.8.2"
-androidx-datastore = "1.1.0-beta02"
+androidx-datastore = "1.1.0-rc01"
+coil = "3.0.0-alpha06"
 decompose = "3.0.0-alpha09"
 essenty = "2.0.0-alpha07"
-kamel-image = "0.9.4"
 kermit = "2.0.3"
 koin = "3.5.3"
-konsist = "0.14.0"
+konsist = "0.15.1"
 kotlinx-coroutines = "1.8.0"
 kotlinx-datetime = "0.5.0"
 kotlinx-serialization = "1.6.3"
@@ -58,6 +58,9 @@ common-main-api = [
 
 common-main-implementation = [
     "androidx-datastore",
+    "coil",
+    "coil-compose",
+    "coil-network-ktor",
     "compose-foundation",
     "compose-material-icons-extended",
     "compose-material3",
@@ -66,7 +69,6 @@ common-main-implementation = [
     "compose-ui",
     "compose-ui-tooling-preview",
     "decompose-extensions-compose",
-    "kamel-image",
     "kermit",
     "kermit-koin",
     "koin-core",
@@ -83,8 +85,7 @@ common-main-implementation = [
 ]
 
 common-test = [
-    "kotlin-test-annotations-common",
-    "kotlin-test-common",
+    "kotlin-test",
 ]
 
 android-main = [
@@ -108,7 +109,6 @@ desktop-main = [
 
 desktop-test = [
     "konsist",
-    "kotlin-test",
     "kotlin-test-junit5",
 ]
 
@@ -116,6 +116,10 @@ desktop-test = [
 
 androidx-activity-compose = { module = "androidx.activity:activity-compose", version.ref = "androidx-activity-compose" }
 androidx-datastore = { module = "androidx.datastore:datastore-preferences-core", version.ref = "androidx-datastore" }
+
+coil = { module = "io.coil-kt.coil3:coil", version.ref = "coil" }
+coil-compose = { module = "io.coil-kt.coil3:coil-compose", version.ref = "coil" }
+coil-network-ktor = { module = "io.coil-kt.coil3:coil-network-ktor", version.ref = "coil" }
 
 compose-foundation = { module = "org.jetbrains.compose.foundation:foundation", version.ref = "compose" }
 compose-material-icons-extended = { module = "org.jetbrains.compose.material:material-icons-extended", version.ref = "compose" }
@@ -130,8 +134,6 @@ decompose-extensions-compose = { module = "com.arkivanov.decompose:extensions-co
 
 essenty-lifecycle = { module = "com.arkivanov.essenty:lifecycle", version.ref = "essenty" }
 
-kamel-image = { module = "media.kamel:kamel-image", version.ref = "kamel-image" }
-
 kermit = { module = "co.touchlab:kermit", version.ref = "kermit" }
 kermit-koin = { module = "co.touchlab:kermit-koin", version.ref = "kermit" }
 
@@ -140,8 +142,6 @@ koin-core = { module = "io.insert-koin:koin-core", version.ref = "koin" }
 konsist = { module = "com.lemonappdev:konsist", version.ref = "konsist" }
 
 kotlin-test = { module = "org.jetbrains.kotlin:kotlin-test", version.ref = "kotlin" }
-kotlin-test-annotations-common = { module = "org.jetbrains.kotlin:kotlin-test-annotations-common", version.ref = "kotlin" }
-kotlin-test-common = { module = "org.jetbrains.kotlin:kotlin-test-common", version.ref = "kotlin" }
 kotlin-test-junit5 = { module = "org.jetbrains.kotlin:kotlin-test-junit5", version.ref = "kotlin" }
 
 kotlinx-coroutines-swing = { module = "org.jetbrains.kotlinx:kotlinx-coroutines-swing", version.ref = "kotlinx-coroutines" }

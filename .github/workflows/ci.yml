@@ -9,9 +9,9 @@ on:
 
 jobs:
 
-  test-desktop:
-    name: 'Test: Desktop'
-    runs-on: ubuntu-latest
+  test:
+    name: 'Test'
+    runs-on: macos-14
     steps:
 
       - name: Checkout
@@ -27,18 +27,18 @@ jobs:
 
       - name: Test
         shell: bash
-        run: ./gradlew desktopTest --no-daemon
+        run: ./gradlew check --no-daemon
 
       - name: Upload reports
         uses: actions/upload-artifact@v4
         with:
-          name: test-reports-desktop
-          path: build/reports/tests/desktopTest/*
+          name: test-reports
+          path: build/reports/tests/*
           compression-level: 9
 
   build-android:
     name: 'Build: Android'
-    needs: test-desktop
+    needs: test
     runs-on: ubuntu-latest
     steps:
 
@@ -95,7 +95,7 @@ jobs:
             name: Windows
             runs-on: windows-latest
     name: 'Build: ${{ matrix.name }}'
-    needs: test-desktop
+    needs: test
     runs-on: ${{ matrix.runs-on }}
     steps:
 
@@ -124,7 +124,7 @@ jobs:
 
   build-ios:
     name: 'Build: iOS'
-    needs: test-desktop
+    needs: test
     runs-on: macos-14
     steps:
 

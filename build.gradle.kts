@@ -8,7 +8,7 @@ val artifactId = "cinematic.journey"
 val groupId = "com.wizbii"
 val packageId = "$groupId.$artifactId"
 
-val appVersionName = "0.0.10"
+val appVersionName = "0.0.11"
 val appVersionCode = appVersionName
     .removeSuffix("-SNAPSHOT")
     .split('.')
@@ -66,12 +66,12 @@ kotlin {
         }
     }
 
-    targets.filterIsInstance<KotlinNativeTarget>().forEach { ios ->
-        ios.binaries.framework {
+    targets.filterIsInstance<KotlinNativeTarget>().forEach { iosTarget ->
+        iosTarget.binaries.framework {
             baseName = "ComposeApp"
         }
-        sourceSets.configureEach {
-            languageSettings {
+        sourceSets.filter { it.name.startsWith(iosTarget.name) }.forEach { iosSourceSet ->
+            iosSourceSet.languageSettings {
                 optIn("kotlinx.cinterop.BetaInteropApi")
                 optIn("kotlinx.cinterop.ExperimentalForeignApi")
             }

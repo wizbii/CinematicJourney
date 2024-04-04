@@ -1,13 +1,14 @@
 package com.wizbii.cinematic.journey.presentation.component
 
-import androidx.compose.animation.core.tween
 import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.layout.ContentScale
-import io.kamel.image.KamelImage
-import io.kamel.image.asyncPainterResource
+import coil3.compose.AsyncImage
+import coil3.compose.LocalPlatformContext
+import coil3.request.ImageRequest
+import coil3.request.crossfade
 
 @Composable
 fun RemoteImage(
@@ -20,15 +21,24 @@ fun RemoteImage(
     Box(
         modifier = modifier,
     ) {
+
         if (url != null) {
-            KamelImage(
-                animationSpec = tween(),
+
+            val request = ImageRequest
+                .Builder(LocalPlatformContext.current)
+                .data(url)
+                .crossfade(true)
+                .build()
+
+            AsyncImage(
                 contentDescription = contentDescription,
                 contentScale = contentScale,
                 modifier = Modifier.matchParentSize(),
-                resource = asyncPainterResource(url),
+                model = request,
             )
+
         }
+
     }
 
 }
