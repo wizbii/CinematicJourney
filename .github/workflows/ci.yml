@@ -9,7 +9,7 @@ on:
 
 jobs:
 
-  test-desktop:
+  test:
     name: 'Test'
     runs-on: macos-14
     steps:
@@ -38,7 +38,7 @@ jobs:
 
   build-android:
     name: 'Build: Android'
-    needs: test-desktop
+    needs: test
     runs-on: ubuntu-latest
     steps:
 
@@ -95,7 +95,7 @@ jobs:
             name: Windows
             runs-on: windows-latest
     name: 'Build: ${{ matrix.name }}'
-    needs: test-desktop
+    needs: test
     runs-on: ${{ matrix.runs-on }}
     steps:
 
@@ -124,7 +124,7 @@ jobs:
 
   build-ios:
     name: 'Build: iOS'
-    needs: test-desktop
+    needs: test
     runs-on: macos-14
     steps:
 
