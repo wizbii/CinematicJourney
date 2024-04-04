@@ -22,9 +22,9 @@ android-sdk-target = "34"
 # Libraries
 androidx-activity-compose = "1.8.2"
 androidx-datastore = "1.1.0-rc01"
+coil = "3.0.0-alpha06"
 decompose = "3.0.0-alpha09"
 essenty = "2.0.0-alpha07"
-kamel-image = "0.9.4"
 kermit = "2.0.3"
 koin = "3.5.3"
 konsist = "0.15.1"
@@ -58,6 +58,9 @@ common-main-api = [
 
 common-main-implementation = [
     "androidx-datastore",
+    "coil",
+    "coil-compose",
+    "coil-network-ktor",
     "compose-foundation",
     "compose-material-icons-extended",
     "compose-material3",
@@ -66,7 +69,6 @@ common-main-implementation = [
     "compose-ui",
     "compose-ui-tooling-preview",
     "decompose-extensions-compose",
-    "kamel-image",
     "kermit",
     "kermit-koin",
     "koin-core",
@@ -115,6 +117,10 @@ desktop-test = [
 androidx-activity-compose = { module = "androidx.activity:activity-compose", version.ref = "androidx-activity-compose" }
 androidx-datastore = { module = "androidx.datastore:datastore-preferences-core", version.ref = "androidx-datastore" }
 
+coil = { module = "io.coil-kt.coil3:coil", version.ref = "coil" }
+coil-compose = { module = "io.coil-kt.coil3:coil-compose", version.ref = "coil" }
+coil-network-ktor = { module = "io.coil-kt.coil3:coil-network-ktor", version.ref = "coil" }
+
 compose-foundation = { module = "org.jetbrains.compose.foundation:foundation", version.ref = "compose" }
 compose-material-icons-extended = { module = "org.jetbrains.compose.material:material-icons-extended", version.ref = "compose" }
 compose-material3 = { module = "org.jetbrains.compose.material3:material3", version.ref = "compose" }
@@ -127,8 +133,6 @@ decompose = { module = "com.arkivanov.decompose:decompose", version.ref = "decom
 decompose-extensions-compose = { module = "com.arkivanov.decompose:extensions-compose", version.ref = "decompose" }
 
 essenty-lifecycle = { module = "com.arkivanov.essenty:lifecycle", version.ref = "essenty" }
-
-kamel-image = { module = "media.kamel:kamel-image", version.ref = "kamel-image" }
 
 kermit = { module = "co.touchlab:kermit", version.ref = "kermit" }
 kermit-koin = { module = "co.touchlab:kermit-koin", version.ref = "kermit" }
