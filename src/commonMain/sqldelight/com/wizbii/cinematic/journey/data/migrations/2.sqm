@@ -1,0 +1,30 @@
+import com.wizbii.cinematic.journey.domain.entity.TmdbMovieId;
+import kotlin.Float;
+import kotlin.Int;
+import kotlinx.datetime.Instant;
+import kotlinx.datetime.LocalDate;
+
+DROP TABLE tmdbMovieRecord;
+
+CREATE TABLE tmdbMovieRecord (
+
+    -- Identifiers
+    id INTEGER AS TmdbMovieId NOT NULL,
+    language TEXT NOT NULL,
+
+    -- TMDB Data
+    backdropPath TEXT,
+    fetchDate INTEGER AS Instant NOT NULL,
+    overview TEXT,
+    posterPath TEXT,
+    releaseDate TEXT AS LocalDate NOT NULL,
+    runtime INTEGER AS Int,
+    tagline TEXT,
+    title TEXT,
+    voteAverage REAL AS Float,
+
+    -- Keys
+    PRIMARY KEY (id, language),
+    FOREIGN KEY (id) REFERENCES movieRecord(tmdbId) ON DELETE CASCADE
+
+);

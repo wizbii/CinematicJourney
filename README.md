@@ -1,9 +1,12 @@
 [![License](https://img.shields.io/badge/License-Apache_2.0-blue.svg)](https://opensource.org/licenses/Apache-2.0)
+[![Download Android](https://img.shields.io/badge/Download-Android-%233DDC84?logo=android)](https://play.google.com/store/apps/details?id=com.wizbii.cinematic.journey)
+<!-- [![Download iOS](https://img.shields.io/badge/Download-iOS-%23007AFF?logo=apple)](https://apps.apple.com/us/app/cinematic-journey/id6478592371) -->
 
 # Cinematic Journey
 
 _Track your cinematic journey through interconnected movies_
 
+<!--suppress HtmlDeprecatedAttribute, HtmlRequiredAltAttribute, HtmlUnknownTarget -->
 <p align="middle">
   <img src="../media/screenshot-1.png?raw=true" width="32%" />
   <img src="../media/screenshot-2.png?raw=true" width="32%" /> 
@@ -19,7 +22,7 @@ with [Compose Multiplatform](https://www.jetbrains.com/lp/compose-multiplatform/
 ## Requirements
 
 * IntelliJ IDEA / Android Studio / Fleet, with Android SDK
-* XCode 15.2 for the iOS app
+* XCode 15.3 for the iOS app
 
 ## Setup
 
@@ -40,7 +43,7 @@ Open the project in IntelliJ IDEA, Android Studio or Fleet and run the generated
 
 ### iOS
 
-Open the XCode project using XCode 15.2 and run the target.
+Open the XCode project using XCode 15.3 and run the target.
 
 ### JVM / Desktop
 
