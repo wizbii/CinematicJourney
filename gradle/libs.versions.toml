@@ -83,8 +83,7 @@ common-main-implementation = [
 ]
 
 common-test = [
-    "kotlin-test-annotations-common",
-    "kotlin-test-common",
+    "kotlin-test",
 ]
 
 android-main = [
@@ -108,7 +107,6 @@ desktop-main = [
 
 desktop-test = [
     "konsist",
-    "kotlin-test",
     "kotlin-test-junit5",
 ]
 
@@ -140,8 +138,6 @@ koin-core = { module = "io.insert-koin:koin-core", version.ref = "koin" }
 konsist = { module = "com.lemonappdev:konsist", version.ref = "konsist" }
 
 kotlin-test = { module = "org.jetbrains.kotlin:kotlin-test", version.ref = "kotlin" }
-kotlin-test-annotations-common = { module = "org.jetbrains.kotlin:kotlin-test-annotations-common", version.ref = "kotlin" }
-kotlin-test-common = { module = "org.jetbrains.kotlin:kotlin-test-common", version.ref = "kotlin" }
 kotlin-test-junit5 = { module = "org.jetbrains.kotlin:kotlin-test-junit5", version.ref = "kotlin" }
 
 kotlinx-coroutines-swing = { module = "org.jetbrains.kotlinx:kotlinx-coroutines-swing", version.ref = "kotlinx-coroutines" }
