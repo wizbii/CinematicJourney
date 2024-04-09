@@ -59,19 +59,17 @@ kotlin {
         }
     }
 
-    sourceSets.configureEach {
-        languageSettings {
-            optIn("androidx.compose.foundation.ExperimentalFoundationApi")
-            optIn("androidx.compose.material3.ExperimentalMaterial3Api")
-        }
-    }
-
     targets.filterIsInstance<KotlinNativeTarget>().forEach { iosTarget ->
         iosTarget.binaries.framework {
             baseName = "ComposeApp"
         }
-        sourceSets.filter { it.name.startsWith(iosTarget.name) }.forEach { iosSourceSet ->
-            iosSourceSet.languageSettings {
+    }
+
+    sourceSets.configureEach {
+        languageSettings {
+            optIn("androidx.compose.foundation.ExperimentalFoundationApi")
+            optIn("androidx.compose.material3.ExperimentalMaterial3Api")
+            if (name.startsWith("ios")) {
                 optIn("kotlinx.cinterop.BetaInteropApi")
                 optIn("kotlinx.cinterop.ExperimentalForeignApi")
             }
