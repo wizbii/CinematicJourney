@@ -11,7 +11,7 @@ gradle = "8.7"
 agp = "8.2.2"
 build-config = "5.3.5"
 compose = "1.6.1"
-kotlinx-atomicfu = "0.21.0"
+kotlinx-atomicfu = "0.23.2"
 versions = "0.51.0"
 
 # Android SDK
