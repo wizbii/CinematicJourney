@@ -1,5 +1,5 @@
-name: Setup for Gitlab Access
-description: Composite build action to setup Gradle
+name: Setup Gitlab Access
+description: Setup Gitlab Access
 
 inputs:
   gitlab-access-token:
