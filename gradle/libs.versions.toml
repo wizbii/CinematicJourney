@@ -22,6 +22,7 @@ android-sdk-target = "34"
 # Libraries
 androidx-activity-compose = "1.9.0"
 androidx-datastore = "1.1.0"
+androidx-splashscreen = "1.0.1"
 coil = "3.0.0-alpha06"
 decompose = "3.0.0-beta01"
 essenty = "2.0.0-beta02"
@@ -90,6 +91,7 @@ common-test = [
 
 android-main = [
     "androidx-activity-compose",
+    "androidx-splashscreen",
     "ktor-client-okhttp",
     "slf4j-android",
     "sqldelight-android",
@@ -116,6 +118,7 @@ desktop-test = [
 
 androidx-activity-compose = { module = "androidx.activity:activity-compose", version.ref = "androidx-activity-compose" }
 androidx-datastore = { module = "androidx.datastore:datastore-preferences-core", version.ref = "androidx-datastore" }
+androidx-splashscreen = { module = "androidx.core:core-splashscreen", version.ref = "androidx-splashscreen" }
 
 coil = { module = "io.coil-kt.coil3:coil", version.ref = "coil" }
 coil-compose = { module = "io.coil-kt.coil3:coil-compose", version.ref = "coil" }
