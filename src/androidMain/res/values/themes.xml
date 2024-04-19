@@ -5,4 +5,10 @@
         <item name="android:windowBackground">@android:color/black</item>
     </style>
 
+    <style name="Theme.SplashTheme" parent="Theme.SplashScreen">
+        <item name="windowSplashScreenAnimatedIcon">@mipmap/ic_launcher</item>
+        <item name="windowSplashScreenBackground">@android:color/black</item>
+        <item name="postSplashScreenTheme">@style/Theme.AppTheme</item>
+    </style>
+
 </resources>
