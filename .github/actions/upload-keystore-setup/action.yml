@@ -1,5 +1,5 @@
-name: Setup local.properties file
-description: Setup local.properties file
+name: Setup upload-keystore.jks file
+description: Setup upload-keystore.jks file
 
 inputs:
   upload-keystore-jks-base64:
