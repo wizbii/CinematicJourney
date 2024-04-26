@@ -8,7 +8,7 @@ val artifactId = "cinematic.journey"
 val groupId = "com.wizbii"
 val packageId = "$groupId.$artifactId"
 
-val appVersionName = "0.0.14"
+val appVersionName = "0.0.15-SNAPSHOT"
 val appVersionCode = appVersionName
     .removeSuffix("-SNAPSHOT")
     .split('.')
