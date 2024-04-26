@@ -53,7 +53,7 @@ class DefaultMovieComponent(
     override val topBarComponent by lazy {
         DefaultTopBarComponent(
             ctx = childContext("top-bar"),
-            hasBackButton = true,
+            displayBackButton = true,
             onBackButtonClicked = onBackButtonClicked,
         )
     }
