@@ -15,7 +15,7 @@
 	<key>CFBundlePackageType</key>
 	<string>$(PRODUCT_BUNDLE_PACKAGE_TYPE)</string>
 	<key>CFBundleShortVersionString</key>
-	<string>0.0.13-SNAPSHOT</string>
+	<string>0.0.13</string>
 	<key>CFBundleVersion</key>
 	<string>13</string>
 	<key>ITSAppUsesNonExemptEncryption</key>
