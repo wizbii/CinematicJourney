@@ -24,7 +24,7 @@ class DefaultUniversesComponent(
     override val topBarComponent by lazy {
         DefaultTopBarComponent(
             ctx = childContext("top-bar"),
-            hasBackButton = false,
+            displayBackButton = false,
         )
     }
 
