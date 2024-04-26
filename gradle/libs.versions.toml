@@ -26,6 +26,7 @@ androidx-splashscreen = "1.0.1"
 coil = "3.0.0-alpha06"
 decompose = "3.0.0-beta01"
 essenty = "2.0.0-beta02"
+instantapps = "17.0.0"
 kermit = "2.0.3"
 koin = "3.5.6"
 konsist = "0.15.1"
@@ -92,6 +93,7 @@ common-test = [
 android-main = [
     "androidx-activity-compose",
     "androidx-splashscreen",
+    "instantapps",
     "ktor-client-okhttp",
     "slf4j-android",
     "sqldelight-android",
@@ -136,6 +138,8 @@ decompose = { module = "com.arkivanov.decompose:decompose", version.ref = "decom
 decompose-extensions-compose = { module = "com.arkivanov.decompose:extensions-compose", version.ref = "decompose" }
 
 essenty-lifecycle = { module = "com.arkivanov.essenty:lifecycle", version.ref = "essenty" }
+
+instantapps = { module = "com.google.android.gms:play-services-instantapps", version.ref = "instantapps" }
 
 kermit = { module = "co.touchlab:kermit", version.ref = "kermit" }
 kermit-koin = { module = "co.touchlab:kermit-koin", version.ref = "kermit" }
