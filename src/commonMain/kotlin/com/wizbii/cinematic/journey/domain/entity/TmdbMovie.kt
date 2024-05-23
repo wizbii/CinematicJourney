@@ -7,6 +7,7 @@ import kotlin.time.Duration.Companion.days
 @Serializable
 data class TmdbMovie(
     val backdropPath: String?,
+    val budget: Long?,
     val id: TmdbMovieId,
     val overview: String?,
     val posterPath: String?,

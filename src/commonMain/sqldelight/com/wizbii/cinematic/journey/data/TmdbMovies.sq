@@ -12,6 +12,7 @@ CREATE TABLE tmdbMovieRecord (
 
     -- TMDB Data
     backdropPath TEXT,
+    budget INTEGER,
     fetchDate INTEGER AS Instant NOT NULL,
     overview TEXT,
     posterPath TEXT,
@@ -33,6 +34,7 @@ createOrUpdateTmdbMovie {
     -- Does nothing if missing
     UPDATE tmdbMovieRecord
     SET backdropPath = :backdropPath,
+        budget = :budget,
         fetchDate = :fetchDate,
         overview = :overview,
         posterPath = :posterPath,
@@ -50,6 +52,7 @@ createOrUpdateTmdbMovie {
         id,
         language,
         backdropPath,
+        budget,
         fetchDate,
         overview,
         posterPath,
@@ -63,6 +66,7 @@ createOrUpdateTmdbMovie {
         :id,
         :language,
         :backdropPath,
+        :budget,
         :fetchDate,
         :overview,
         :posterPath,

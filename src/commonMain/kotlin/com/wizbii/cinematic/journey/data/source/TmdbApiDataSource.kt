@@ -157,6 +157,7 @@ class TmdbApiDataSource {
     @Serializable
     data class TmdbMovieDetails(
         val backdropPath: String?,
+        val budget: Long?,
         val id: TmdbMovieId,
         val overview: String?,
         val posterPath: String?,
