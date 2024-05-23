@@ -37,6 +37,7 @@ class DefaultTmdbRepository(
                 if (tmdbMovieRecord == null) return@map null
                 TmdbMovie(
                     backdropPath = tmdbMovieRecord.backdropPath,
+                    budget = tmdbMovieRecord.budget,
                     id = tmdbMovieRecord.id,
                     overview = tmdbMovieRecord.overview,
                     posterPath = tmdbMovieRecord.posterPath,
@@ -52,6 +53,7 @@ class DefaultTmdbRepository(
         tmdbApiDataSource.getMovieDetails(id, language).let { details ->
             TmdbMovie(
                 backdropPath = details.backdropPath,
+                budget = details.budget,
                 id = details.id,
                 overview = details.overview,
                 posterPath = details.posterPath,
@@ -69,6 +71,7 @@ class DefaultTmdbRepository(
     override suspend fun setLocalTmdbMovie(tmdbMovie: TmdbMovie, fetchDate: Instant, language: String) {
         tmdbMoviesQueries.createOrUpdateTmdbMovie(
             backdropPath = tmdbMovie.backdropPath,
+            budget = tmdbMovie.budget,
             fetchDate = fetchDate,
             id = tmdbMovie.id,
             language = language,

@@ -17,6 +17,7 @@ import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.automirrored.outlined.StarHalf
 import androidx.compose.material.icons.filled.Check
 import androidx.compose.material.icons.filled.Visibility
+import androidx.compose.material.icons.outlined.Savings
 import androidx.compose.material.icons.outlined.Theaters
 import androidx.compose.material.icons.outlined.Timer
 import androidx.compose.material3.CardDefaults
@@ -436,6 +437,20 @@ private fun TitleColumn(
 
             }
 
+        }
+
+        Row(
+            horizontalArrangement = Arrangement.spacedBy(8.dp, Alignment.CenterHorizontally),
+            modifier = Modifier.fillMaxWidth(),
+        ) {
+            movie.budget?.let { budget ->
+
+                Chip(
+                    icon = Icons.Outlined.Savings,
+                    text = "${budget.toString()} USD",
+                )
+
+            }
         }
 
     }

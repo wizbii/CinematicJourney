@@ -14,6 +14,7 @@ class PreviewMovieComponent : MovieComponent {
     override val movie = MutableStateFlow(
         Movie(
             backdropPath = null,
+            budget = null,
             id = MovieId("id"),
             overview = "Harley Quinn joins forces with a singer, an assassin and a police detective to help a young girl who had a hit placed on her after she stole a rare diamond from a crime lord.",
             posterPath = null,
@@ -35,6 +36,7 @@ class PreviewMovieComponent : MovieComponent {
         List(5) { index ->
             Movie(
                 backdropPath = null,
+                budget = null,
                 id = MovieId(index.toString()),
                 overview = null,
                 posterPath = null,

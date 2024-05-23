@@ -3,9 +3,11 @@ package com.wizbii.cinematic.journey.domain.entity
 import kotlinx.datetime.LocalDate
 import kotlinx.serialization.Serializable
 
+// C’est le modèle UI
 @Serializable
 data class Movie(
     val backdropPath: String?,
+    val budget: Int?,
     val id: MovieId,
     val overview: String?,
     val posterPath: String?,
@@ -22,6 +24,7 @@ data class Movie(
 
     constructor(localMovie: LocalMovie, tmdbMovie: TmdbMovie?) : this(
         backdropPath = tmdbMovie?.backdropPath,
+        budget = tmdbMovie?.budget,
         id = localMovie.id,
         overview = tmdbMovie?.overview,
         posterPath = tmdbMovie?.posterPath,

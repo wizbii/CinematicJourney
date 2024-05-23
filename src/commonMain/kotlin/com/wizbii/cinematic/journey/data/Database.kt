@@ -26,6 +26,7 @@ fun DatabaseWithAdapters(driver: SqlDriver): Database =
         ),
         tmdbMovieRecordAdapter = TmdbMovieRecord.Adapter(
             idAdapter = TmdbMovieIdAdapter,
+            budgetAdapter = IntColumnAdapter,
             fetchDateAdapter = InstantAdapter,
             releaseDateAdapter = LocalDateAdapter,
             runtimeAdapter = IntColumnAdapter,

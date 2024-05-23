@@ -154,9 +154,11 @@ class TmdbApiDataSource {
             }
         }
 
+    // HTTP response model
     @Serializable
     data class TmdbMovieDetails(
         val backdropPath: String?,
+        val budget: Int?,
         val id: TmdbMovieId,
         val overview: String?,
         val posterPath: String?,

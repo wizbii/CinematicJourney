@@ -18,6 +18,7 @@ class PreviewMoviesComponent : MoviesComponent {
         List(10) { index ->
             Movie(
                 backdropPath = null,
+                budget = null,
                 id = MovieId(index.toString()),
                 overview = null,
                 posterPath = null,
