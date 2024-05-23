@@ -1,0 +1,3 @@
+import kotlin.Boolean;
+
+ALTER TABLE tmdbMovieRecord ADD COLUMN isDisabled INTEGER AS Boolean NOT NULL DEFAULT FALSE;
