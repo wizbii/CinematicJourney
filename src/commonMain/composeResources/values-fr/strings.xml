@@ -28,10 +28,13 @@
     <string name="movie_prerequisites_one">Prérequis:</string>
     <string name="movie_prerequisites_other">Prérequis:</string>
 
+    <!-- Settings -->
+    <string name="settings_title">Paramètres</string>
+    <string name="settings_dark_mode">Mode sombre</string>
+    <string name="settings_light_mode">Mode clair</string>
+
     <!-- TopBar -->
     <string name="topbar_back">Retour</string>
-    <string name="topbar_dark_mode">Mode sombre</string>
-    <string name="topbar_light_mode">Mode clair</string>
 
     <!-- Universes -->
     <string name="universes_ongoing">En cours</string>

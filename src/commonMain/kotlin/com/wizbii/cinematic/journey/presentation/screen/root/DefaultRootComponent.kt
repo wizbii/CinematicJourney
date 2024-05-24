@@ -20,6 +20,7 @@ import com.wizbii.cinematic.journey.presentation.screen.movies.DefaultMoviesComp
 import com.wizbii.cinematic.journey.presentation.screen.root.RootComponent.Child.MovieChild
 import com.wizbii.cinematic.journey.presentation.screen.root.RootComponent.Child.MoviesChild
 import com.wizbii.cinematic.journey.presentation.screen.root.RootComponent.Child.UniversesChild
+import com.wizbii.cinematic.journey.presentation.screen.settings.DefaultSettingsComponent
 import com.wizbii.cinematic.journey.presentation.screen.universes.DefaultUniversesComponent
 import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.launch
@@ -36,6 +37,11 @@ class DefaultRootComponent(
 
     private val navigation = StackNavigation<Config>()
     private val scope = componentCoroutineScope()
+
+    private val navigateToSettings = {
+        @OptIn(ExperimentalDecomposeApi::class)
+        navigation.pushNew(Config.Settings)
+    }
 
     override val darkModeComponent by lazy {
         DefaultDarkModeComponent(childContext("dark-mode"))
@@ -74,6 +80,7 @@ class DefaultRootComponent(
                     ctx = ctx,
                     movieId = config.movieId,
                     onBackButtonClicked = navigation::pop,
+                    navigateToSettings = navigateToSettings,
                     onMovieSelected = {
                         @OptIn(ExperimentalDecomposeApi::class)
                         navigation.pushNew(Config.Movie(it))
@@ -85,6 +92,7 @@ class DefaultRootComponent(
                 DefaultMoviesComponent(
                     ctx = ctx,
                     onBackButtonClicked = navigation::pop,
+                    navigateToSettings = navigateToSettings,
                     onMovieSelected = {
                         @OptIn(ExperimentalDecomposeApi::class)
                         navigation.pushNew(Config.Movie(it))
@@ -93,9 +101,17 @@ class DefaultRootComponent(
                 )
             )
 
+            Config.Settings -> RootComponent.Child.SettingsChild(
+                DefaultSettingsComponent(
+                    ctx = ctx,
+                    onBackButtonClicked = navigation::pop,
+                )
+            )
+
             Config.Universes -> UniversesChild(
                 DefaultUniversesComponent(
                     ctx = ctx,
+                    navigateToSettings = navigateToSettings,
                     onUniverseSelected = {
                         @OptIn(ExperimentalDecomposeApi::class)
                         navigation.pushNew(Config.Movies(it))
@@ -116,6 +132,9 @@ class DefaultRootComponent(
 
         @Serializable
         data object Universes : Config
+
+        @Serializable
+        data object Settings : Config
 
     }
 

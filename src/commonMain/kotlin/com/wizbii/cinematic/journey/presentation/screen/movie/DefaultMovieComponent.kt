@@ -30,6 +30,7 @@ class DefaultMovieComponent(
     ctx: ComponentContext,
     movieId: MovieId,
     onBackButtonClicked: () -> Unit,
+    navigateToSettings: () -> Unit,
     private val onMovieSelected: (MovieId) -> Unit,
 ) : MovieComponent, KoinComponent, ComponentContext by ctx {
 
@@ -55,6 +56,7 @@ class DefaultMovieComponent(
             ctx = childContext("top-bar"),
             displayBackButton = true,
             onBackButtonClicked = onBackButtonClicked,
+            onSettingsButtonClicked = navigateToSettings,
         )
     }
 

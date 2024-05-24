@@ -15,6 +15,8 @@ import com.wizbii.cinematic.journey.presentation.screen.movies.MoviesScreen
 import com.wizbii.cinematic.journey.presentation.screen.root.RootComponent.Child.MovieChild
 import com.wizbii.cinematic.journey.presentation.screen.root.RootComponent.Child.MoviesChild
 import com.wizbii.cinematic.journey.presentation.screen.root.RootComponent.Child.UniversesChild
+import com.wizbii.cinematic.journey.presentation.screen.root.RootComponent.Child.SettingsChild
+import com.wizbii.cinematic.journey.presentation.screen.settings.SettingsScreen
 import com.wizbii.cinematic.journey.presentation.screen.universes.UniversesScreen
 
 @Composable
@@ -33,6 +35,7 @@ fun Root(component: RootComponent = PreviewRootComponent()) {
                 when (val child = it.instance) {
                     is MovieChild     -> MovieScreen(child.component)
                     is MoviesChild    -> MoviesScreen(child.component)
+                    is SettingsChild  -> SettingsScreen(child.component)
                     is UniversesChild -> UniversesScreen(child.component)
                 }
             }

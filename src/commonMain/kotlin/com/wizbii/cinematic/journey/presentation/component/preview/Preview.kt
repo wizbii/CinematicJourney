@@ -6,6 +6,8 @@ import com.wizbii.cinematic.journey.presentation.component.CinematicJourneyTheme
 import com.wizbii.cinematic.journey.presentation.component.dark.mode.DarkMode
 import com.wizbii.cinematic.journey.presentation.component.dark.mode.PreviewDarkModeComponent
 import com.wizbii.cinematic.journey.presentation.screen.movie.MovieScreen
+import com.wizbii.cinematic.journey.presentation.screen.movies.MoviesScreen
+import com.wizbii.cinematic.journey.presentation.screen.settings.SettingsScreen
 import org.jetbrains.compose.ui.tooling.preview.Preview
 
 @Preview

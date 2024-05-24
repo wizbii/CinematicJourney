@@ -30,10 +30,13 @@
     <string name="movie_prerequisites_one">Prerequisite:</string>
     <string name="movie_prerequisites_other">Prerequisites:</string>
 
+    <!-- Settings -->
+    <string name="settings_title">Settings</string>
+    <string name="settings_dark_mode">Dark mode</string>
+    <string name="settings_light_mode">Light mode</string>
+
     <!-- TopBar -->
     <string name="topbar_back">Back</string>
-    <string name="topbar_dark_mode">Dark mode</string>
-    <string name="topbar_light_mode">Light mode</string>
 
     <!-- Universes -->
     <string name="universes_ongoing">Ongoing</string>

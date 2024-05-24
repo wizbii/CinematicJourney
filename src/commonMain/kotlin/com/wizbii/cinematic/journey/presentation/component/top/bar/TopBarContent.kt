@@ -2,8 +2,7 @@ package com.wizbii.cinematic.journey.presentation.component.top.bar
 
 import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.automirrored.outlined.ArrowBack
-import androidx.compose.material.icons.filled.DarkMode
-import androidx.compose.material.icons.filled.LightMode
+import androidx.compose.material.icons.filled.Settings
 import androidx.compose.material3.ExperimentalMaterial3Api
 import androidx.compose.material3.Icon
 import androidx.compose.material3.IconButton
@@ -16,11 +15,9 @@ import androidx.compose.ui.text.font.FontWeight.Companion.SemiBold
 import androidx.compose.ui.text.style.TextOverflow
 import com.materialkolor.ktx.blend
 import com.wizbii.cinematic.journey.presentation.component.AutoSizeText
-import com.wizbii.cinematic.journey.presentation.component.dark.mode.LocalDarkMode
 import com.wizbii.cinematicjourney.generated.resources.Res
+import com.wizbii.cinematicjourney.generated.resources.settings_title
 import com.wizbii.cinematicjourney.generated.resources.topbar_back
-import com.wizbii.cinematicjourney.generated.resources.topbar_dark_mode
-import com.wizbii.cinematicjourney.generated.resources.topbar_light_mode
 import org.jetbrains.compose.resources.ExperimentalResourceApi
 import org.jetbrains.compose.resources.stringResource
 
@@ -54,7 +51,7 @@ fun TopBarContent(
         }
 
     TopAppBar(
-        actions = { Actions(toggleDarkMode = component::toggleDarkMode) },
+        actions = { if (component.hasSettingsButton) Actions(navigateToSettings = component::navigateToSettings) },
         colors = colors,
         navigationIcon = { if (component.hasBackButton) BackButton(component::onBackButtonClicked) },
         scrollBehavior = scrollBehavior,
@@ -100,32 +97,21 @@ private fun Title(
 
 @Composable
 private fun Actions(
-    isDarkMode: Boolean = LocalDarkMode.current,
-    toggleDarkMode: () -> Unit,
+    navigateToSettings: () -> Unit,
 ) {
 
-    val darkModeIcon =
-        if (isDarkMode) {
-            Icons.Default.LightMode
-        } else {
-            Icons.Default.DarkMode
-        }
+    val settingsIcon = Icons.Default.Settings
 
     @OptIn(ExperimentalResourceApi::class)
-    val darkModeText =
-        if (isDarkMode) {
-            stringResource(Res.string.topbar_light_mode)
-        } else {
-            stringResource(Res.string.topbar_dark_mode)
-        }
+    val settingsText = stringResource(Res.string.settings_title)
 
     IconButton(
-        onClick = toggleDarkMode,
+        onClick = navigateToSettings,
     ) {
 
         Icon(
-            contentDescription = darkModeText,
-            imageVector = darkModeIcon,
+            contentDescription = settingsText,
+            imageVector = settingsIcon,
         )
 
     }
