@@ -33,8 +33,8 @@ class DefaultUniverseRepository(
                 universes.forEach { universe ->
                     universeQueries.createUniverseIfNotExist(
                         id = universe.id,
-                        isFinished = universe.isFinished,
                         isDisabled = universe.isDisabled,
+                        isFinished = universe.isFinished,
                     )
                 }
             }
