@@ -3,6 +3,7 @@ import com.github.benmanes.gradle.versions.updates.DependencyUpdatesTask
 import org.jetbrains.kotlin.gradle.ExperimentalKotlinGradlePluginApi
 import org.jetbrains.kotlin.gradle.plugin.mpp.KotlinNativeTarget
 import org.jetbrains.kotlin.gradle.targets.jvm.tasks.KotlinJvmTest
+import org.jetbrains.kotlin.konan.properties.hasProperty
 
 val artifactId = "cinematic.journey"
 val groupId = "com.wizbii"
@@ -105,6 +106,10 @@ buildConfig {
     }
 
     packageName = packageId
+
+    if (!localProperties.hasProperty("tmdb.api.key")) {
+        throw GradleException("TMDB API key not defined. Set the tmdb.api.key in your project's local properties file at '${rootDir}/local.properties'.")
+    }
 
     buildConfigField(
         name = "TMDB_API_KEY",
