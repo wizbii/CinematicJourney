@@ -21,7 +21,6 @@ class DefaultSettingsComponent(
     override val topBarComponent by lazy {
         DefaultTopBarComponent(
             ctx = childContext("top-bar"),
-            displayBackButton = true,
             displaySettingsButton = false,
             onBackButtonClicked = onBackButtonClicked,
         )

@@ -49,7 +49,6 @@ class DefaultMoviesComponent(
     override val topBarComponent by lazy {
         DefaultTopBarComponent(
             ctx = childContext("top-bar"),
-            displayBackButton = true,
             onBackButtonClicked = onBackButtonClicked,
             onSettingsButtonClicked = navigateToSettings,
         )

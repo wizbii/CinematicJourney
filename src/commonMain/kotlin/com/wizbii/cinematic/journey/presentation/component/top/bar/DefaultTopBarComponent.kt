@@ -6,7 +6,7 @@ import org.koin.core.component.KoinComponent
 
 class DefaultTopBarComponent(
     ctx: ComponentContext,
-    private val displayBackButton: Boolean,
+    private val displayBackButton: Boolean = true,
     private val displaySettingsButton: Boolean = true,
     private val onBackButtonClicked: (() -> Unit)? = null,
     private val onSettingsButtonClicked: (() -> Unit)? = null,
