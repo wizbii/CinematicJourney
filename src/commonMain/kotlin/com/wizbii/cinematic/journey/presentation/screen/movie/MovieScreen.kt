@@ -19,7 +19,9 @@ import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.filled.Wallet
 import androidx.compose.material.icons.automirrored.outlined.StarHalf
 import androidx.compose.material.icons.filled.Check
+import androidx.compose.material.icons.filled.Star
 import androidx.compose.material.icons.filled.Visibility
+import androidx.compose.material.icons.outlined.Star
 import androidx.compose.material.icons.outlined.Theaters
 import androidx.compose.material.icons.outlined.Timer
 import androidx.compose.material3.CardDefaults
@@ -439,10 +441,18 @@ private fun TitleColumn(
 
             movie.score?.let { score ->
 
-                Chip(
-                    icon = Icons.AutoMirrored.Outlined.StarHalf,
-                    text = score.toString(1),
-                )
+                if (score > 0) {
+                    val icon = when (score) {
+                        in 0.0..2.0 -> Icons.Outlined.Star
+                        in 2.0..8.0 -> Icons.AutoMirrored.Outlined.StarHalf
+                        else -> Icons.Filled.Star
+                    }
+
+                    Chip(
+                        icon = icon,
+                        text = score.toString(1),
+                    )
+                }
 
             }
 
