@@ -54,6 +54,7 @@ import com.wizbii.cinematic.journey.presentation.component.MovieListItem
 import com.wizbii.cinematic.journey.presentation.component.RemoteImage
 import com.wizbii.cinematic.journey.presentation.component.scrollbar.ColumnWithScrollbar
 import com.wizbii.cinematic.journey.presentation.component.top.bar.TopBarContent
+import com.wizbii.cinematic.journey.presentation.util.performHaptic
 import com.wizbii.cinematic.journey.presentation.util.toString
 import com.wizbii.cinematic.journey.whenPlatform
 import com.wizbii.cinematicjourney.generated.resources.Res
@@ -203,7 +204,10 @@ private fun MovieHeader(
                             end = 16.dp + additionalEndPadding,
                             bottom = 16.dp,
                         ),
-                    onCheckedChange = { setMovieWatched(movie.id, !movie.watched) },
+                    onCheckedChange = {
+                        performHaptic()
+                        setMovieWatched(movie.id, !movie.watched)
+                    },
                 ) {
 
                     Icon(
