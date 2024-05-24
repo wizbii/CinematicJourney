@@ -5,8 +5,10 @@ import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.BoxWithConstraints
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.Row
+import androidx.compose.foundation.layout.ExperimentalLayoutApi
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.fillMaxWidth
+import androidx.compose.foundation.layout.FlowRow
 import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.size
@@ -14,6 +16,7 @@ import androidx.compose.foundation.layout.width
 import androidx.compose.foundation.layout.wrapContentSize
 import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.material.icons.Icons
+import androidx.compose.material.icons.filled.Wallet
 import androidx.compose.material.icons.automirrored.outlined.StarHalf
 import androidx.compose.material.icons.filled.Check
 import androidx.compose.material.icons.filled.Visibility
@@ -54,6 +57,7 @@ import com.wizbii.cinematic.journey.presentation.component.MovieListItem
 import com.wizbii.cinematic.journey.presentation.component.RemoteImage
 import com.wizbii.cinematic.journey.presentation.component.scrollbar.ColumnWithScrollbar
 import com.wizbii.cinematic.journey.presentation.component.top.bar.TopBarContent
+import com.wizbii.cinematic.journey.presentation.util.formatHumanReadable
 import com.wizbii.cinematic.journey.presentation.util.performHaptic
 import com.wizbii.cinematic.journey.presentation.util.toString
 import com.wizbii.cinematic.journey.whenPlatform
@@ -412,8 +416,10 @@ private fun TitleColumn(
             textAlign = TextAlign.Center,
         )
 
-        Row(
+        @OptIn(ExperimentalLayoutApi::class)
+        FlowRow(
             horizontalArrangement = Arrangement.spacedBy(8.dp, Alignment.CenterHorizontally),
+            verticalArrangement = Arrangement.spacedBy(4.dp),
             modifier = Modifier.fillMaxWidth(),
         ) {
 
@@ -436,6 +442,15 @@ private fun TitleColumn(
                 Chip(
                     icon = Icons.AutoMirrored.Outlined.StarHalf,
                     text = score.toString(1),
+                )
+
+            }
+
+            movie.budget?.let { budget ->
+
+                Chip(
+                    icon = Icons.Filled.Wallet,
+                    text = "${budget.formatHumanReadable()}\$",
                 )
 
             }

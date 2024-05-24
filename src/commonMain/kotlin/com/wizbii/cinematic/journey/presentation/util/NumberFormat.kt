@@ -2,6 +2,20 @@ package com.wizbii.cinematic.journey.presentation.util
 
 import kotlin.math.roundToLong
 
+fun Number.formatHumanReadable(): String {
+    val suffix = arrayOf("", "K", "M", "G", "T", "P", "E", "Z", "Y")
+
+    var suffixIndex = 0
+    var value = toDouble()
+
+    while (value > 1000 && suffixIndex in suffix.indices) {
+        value /= 1000
+        suffixIndex++
+    }
+
+    return "$value ${suffix[suffixIndex]}"
+}
+
 fun Number.toString(maxDecimals: Int = 1): String {
 
     require(maxDecimals >= 0)
