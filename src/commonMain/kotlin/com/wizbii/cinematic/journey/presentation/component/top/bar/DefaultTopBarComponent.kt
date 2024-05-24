@@ -22,6 +22,10 @@ class DefaultTopBarComponent(
         if (displayBackButton) require(onBackButtonClicked != null) {
             "Cannot have back button without handler"
         }
+
+        if (displaySettingsButton) require(onSettingsButtonClicked != null) {
+            "Cannot have settings button without handler"
+        }
     }
 
     override fun navigateToSettings() {
