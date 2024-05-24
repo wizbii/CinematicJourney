@@ -30,6 +30,7 @@ import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.text.style.TextOverflow
 import androidx.compose.ui.unit.Dp
 import androidx.compose.ui.unit.dp
+import com.wizbii.cinematic.journey.presentation.util.performHaptic
 import com.wizbii.cinematic.journey.presentation.util.string.localizedName
 import kotlinx.coroutines.flow.Flow
 import kotlinx.datetime.LocalDate
@@ -127,7 +128,10 @@ private fun MovieListItem(
             FilledTonalIconToggleButton(
                 checked = movieWatched,
                 modifier = Modifier.padding(horizontal = 12.dp),
-                onCheckedChange = { setMovieWatched(!movieWatched) }
+                onCheckedChange = {
+                    performHaptic()
+                    setMovieWatched(!movieWatched)
+                }
             ) {
 
                 Icon(
