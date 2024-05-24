@@ -34,6 +34,7 @@ class DefaultUniverseRepository(
                     universeQueries.createUniverseIfNotExist(
                         id = universe.id,
                         isFinished = universe.isFinished,
+                        isDisabled = universe.isDisabled,
                     )
                 }
             }

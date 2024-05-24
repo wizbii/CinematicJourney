@@ -291,5 +291,14 @@
       "avengers-4"
     ],
     "tmdbId": 609681
+  },
+  {
+    "id": "deadpool-wolverine",
+    "originalDate": "2024-07-24",
+    "originalTitle": "Deadpool & Wolverine",
+    "prerequisites": [
+      "deadpool-2"
+    ],
+    "tmdbId": 533535
   }
 ]

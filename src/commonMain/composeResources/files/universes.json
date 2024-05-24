@@ -6,5 +6,10 @@
   {
     "id": "mcu",
     "isFinished": false
+  },
+  {
+    "id": "fox-mcu",
+    "isFinished": false,
+    "isDisabled": true
   }
 ]

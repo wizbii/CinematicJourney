@@ -2,19 +2,21 @@ import com.wizbii.cinematic.journey.domain.entity.UniverseId;
 import kotlin.Boolean;
 
 CREATE TABLE universeRecord (
-    id TEXT AS UniverseId NOT NULL PRIMARY KEY ,
+    id TEXT AS UniverseId NOT NULL PRIMARY KEY,
+    isDisabled INTEGER AS Boolean NOT NULL DEFAULT FALSE,
     isFinished INTEGER AS Boolean NOT NULL
 );
 
 createUniverseIfNotExist:
-    REPLACE INTO universeRecord(id, isFinished)
-    VALUES (?, ?);
+    REPLACE INTO universeRecord(id, isFinished, isDisabled)
+    VALUES (?, ?, ?);
 
 readAllUniverses:
     SELECT *
-    FROM universeRecord;
+    FROM universeRecord
+    WHERE isDisabled != TRUE;
 
 readUniverseById:
     SELECT *
     FROM universeRecord
-    WHERE id = ?;
+    WHERE id = ? AND isDisabled != TRUE;

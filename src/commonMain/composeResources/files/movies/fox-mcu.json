@@ -1,0 +1,18 @@
+[
+  {
+    "id": "deadpool",
+    "originalDate": "2016-02-10",
+    "originalTitle": "Deadpool",
+    "prerequisites": [],
+    "tmdbId": 293660
+  },
+  {
+    "id": "deadpool-2",
+    "originalDate": "2018-05-16",
+    "originalTitle": "Deadpool 2",
+    "prerequisites": [
+      "deadpool"
+    ],
+    "tmdbId": 383498
+  }
+]
