@@ -38,9 +38,9 @@ class DefaultRootComponent(
     private val navigation = StackNavigation<Config>()
     private val scope = componentCoroutineScope()
 
-    private val navigateToSettings = {
+    private fun navigate(page: Config) {
         @OptIn(ExperimentalDecomposeApi::class)
-        navigation.pushNew(Config.Settings)
+        navigation.pushNew(page)
     }
 
     override val darkModeComponent by lazy {
@@ -80,11 +80,8 @@ class DefaultRootComponent(
                     ctx = ctx,
                     movieId = config.movieId,
                     onBackButtonClicked = navigation::pop,
-                    navigateToSettings = navigateToSettings,
-                    onMovieSelected = {
-                        @OptIn(ExperimentalDecomposeApi::class)
-                        navigation.pushNew(Config.Movie(it))
-                    },
+                    navigateToSettings = { navigate(Config.Settings) },
+                    onMovieSelected = { navigate(Config.Movie(it)) },
                 )
             )
 
@@ -92,11 +89,8 @@ class DefaultRootComponent(
                 DefaultMoviesComponent(
                     ctx = ctx,
                     onBackButtonClicked = navigation::pop,
-                    navigateToSettings = navigateToSettings,
-                    onMovieSelected = {
-                        @OptIn(ExperimentalDecomposeApi::class)
-                        navigation.pushNew(Config.Movie(it))
-                    },
+                    navigateToSettings = { navigate(Config.Settings) },
+                    onMovieSelected = { navigate(Config.Movie(it)) },
                     universeId = config.universeId,
                 )
             )
@@ -111,11 +105,8 @@ class DefaultRootComponent(
             Config.Universes -> UniversesChild(
                 DefaultUniversesComponent(
                     ctx = ctx,
-                    navigateToSettings = navigateToSettings,
-                    onUniverseSelected = {
-                        @OptIn(ExperimentalDecomposeApi::class)
-                        navigation.pushNew(Config.Movies(it))
-                    }
+                    navigateToSettings = { navigate(Config.Settings) },
+                    onUniverseSelected = { navigate(Config.Movies(it)) },
                 )
             )
 
