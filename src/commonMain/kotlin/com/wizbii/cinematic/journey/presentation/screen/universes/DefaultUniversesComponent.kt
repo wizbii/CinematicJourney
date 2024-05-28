@@ -14,6 +14,7 @@ import org.koin.core.component.inject
 
 class DefaultUniversesComponent(
     ctx: ComponentContext,
+    navigateToSettings: () -> Unit,
     private val onUniverseSelected: (UniverseId) -> Unit,
 ) : UniversesComponent, KoinComponent, ComponentContext by ctx {
 
@@ -25,6 +26,7 @@ class DefaultUniversesComponent(
         DefaultTopBarComponent(
             ctx = childContext("top-bar"),
             displayBackButton = false,
+            onSettingsButtonClicked = navigateToSettings,
         )
     }
 

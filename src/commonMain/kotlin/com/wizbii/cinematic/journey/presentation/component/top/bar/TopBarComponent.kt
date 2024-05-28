@@ -4,7 +4,9 @@ interface TopBarComponent {
 
     val hasBackButton: Boolean
 
-    fun toggleDarkMode()
+    val hasSettingsButton: Boolean
+
+    fun navigateToSettings()
 
     fun onBackButtonClicked()
 

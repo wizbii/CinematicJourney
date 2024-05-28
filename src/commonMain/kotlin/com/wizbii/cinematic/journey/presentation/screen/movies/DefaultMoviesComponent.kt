@@ -26,6 +26,7 @@ import org.koin.core.component.inject
 class DefaultMoviesComponent(
     ctx: ComponentContext,
     onBackButtonClicked: () -> Unit,
+    navigateToSettings: () -> Unit,
     private val onMovieSelected: (MovieId) -> Unit,
     universeId: UniverseId,
 ) : MoviesComponent, KoinComponent, ComponentContext by ctx {
@@ -50,6 +51,7 @@ class DefaultMoviesComponent(
             ctx = childContext("top-bar"),
             displayBackButton = true,
             onBackButtonClicked = onBackButtonClicked,
+            onSettingsButtonClicked = navigateToSettings,
         )
     }
 
