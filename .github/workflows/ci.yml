@@ -147,7 +147,7 @@ jobs:
       - name: Setup XCode
         uses: maxim-lobanov/setup-xcode@v1
         with:
-          xcode-version: 15.3
+          xcode-version: 15.4
 
       - name: Apply Gradle Build version to XCode project
         shell: bash
