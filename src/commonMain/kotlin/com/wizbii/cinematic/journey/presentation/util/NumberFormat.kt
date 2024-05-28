@@ -3,17 +3,26 @@ package com.wizbii.cinematic.journey.presentation.util
 import kotlin.math.roundToLong
 
 fun Number.formatHumanReadable(): String {
-    val suffix = arrayOf("", "K", "M", "G", "T", "P", "E", "Z", "Y")
+    val suffix = arrayOf("", "k", "M", "G")
 
     var suffixIndex = 0
     var value = toDouble()
 
-    while (value > 1000 && suffixIndex in suffix.indices) {
+    while (value >= 1000 && suffixIndex < suffix.lastIndex) {
         value /= 1000
         suffixIndex++
     }
 
-    return "$value ${suffix[suffixIndex]}"
+    val numberAsString =
+        if (value.toString(1).last() == '0') {
+            value.roundToLong().toString()
+        } else {
+            value.toString()
+                .split('.')
+                .let { (i, d) -> "$i.${d.take(3)}" }
+        }
+
+    return "$numberAsString ${suffix[suffixIndex]}"
 }
 
 fun Number.toString(maxDecimals: Int = 1): String {
