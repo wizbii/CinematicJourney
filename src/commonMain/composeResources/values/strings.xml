@@ -26,9 +26,11 @@
     <!-- Component-specific strings -->
 
     <!-- Movie -->
-    <string name="movie_prerequisites_zero">No prerequisites!</string>
-    <string name="movie_prerequisites_one">Prerequisite:</string>
-    <string name="movie_prerequisites_other">Prerequisites:</string>
+    <plurals name="movie_prerequisites">
+        <item quantity="one">Prerequisite:</item>
+        <item quantity="other">Prerequisites:</item>
+    </plurals>
+    <string name="movie_prerequisites_none">No prerequisites!</string>
 
     <!-- TopBar -->
     <string name="topbar_back">Back</string>

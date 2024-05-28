@@ -6,6 +6,7 @@
 .DS_Store
 .gradle
 .idea
+.kotlin
 /build/
 /xcode/build
 captures

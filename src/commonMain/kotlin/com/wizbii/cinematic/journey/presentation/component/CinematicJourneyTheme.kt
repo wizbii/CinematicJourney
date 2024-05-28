@@ -27,7 +27,6 @@ import com.wizbii.cinematicjourney.generated.resources.Nunito_Regular
 import com.wizbii.cinematicjourney.generated.resources.Nunito_SemiBold
 import com.wizbii.cinematicjourney.generated.resources.Nunito_SemiBoldItalic
 import com.wizbii.cinematicjourney.generated.resources.Res
-import org.jetbrains.compose.resources.ExperimentalResourceApi
 import org.jetbrains.compose.resources.Font
 
 @Composable
@@ -46,7 +45,6 @@ fun CinematicJourneyTheme(
 }
 
 @Composable
-@OptIn(ExperimentalResourceApi::class)
 private fun nunitoFontFamily() = FontFamily(
     Font(Res.font.Nunito_Black, FontWeight.Black, FontStyle.Normal),
     Font(Res.font.Nunito_BlackItalic, FontWeight.Black, FontStyle.Italic),

@@ -16,11 +16,9 @@ import com.wizbii.cinematicjourney.generated.resources.month_11
 import com.wizbii.cinematicjourney.generated.resources.month_12
 import kotlinx.datetime.Month
 import kotlinx.datetime.number
-import org.jetbrains.compose.resources.ExperimentalResourceApi
 import org.jetbrains.compose.resources.stringResource
 
 internal val Month.localizedName: String
-    @OptIn(ExperimentalResourceApi::class)
     @Composable inline get() = stringResource(
         when (number) {
             1    -> Res.string.month_01

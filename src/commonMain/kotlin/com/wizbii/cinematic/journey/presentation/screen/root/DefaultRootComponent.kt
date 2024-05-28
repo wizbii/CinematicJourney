@@ -1,7 +1,6 @@
 package com.wizbii.cinematic.journey.presentation.screen.root
 
 import com.arkivanov.decompose.ComponentContext
-import com.arkivanov.decompose.ExperimentalDecomposeApi
 import com.arkivanov.decompose.childContext
 import com.arkivanov.decompose.router.stack.ChildStack
 import com.arkivanov.decompose.router.stack.StackNavigation
@@ -75,7 +74,6 @@ class DefaultRootComponent(
                     movieId = config.movieId,
                     onBackButtonClicked = navigation::pop,
                     onMovieSelected = {
-                        @OptIn(ExperimentalDecomposeApi::class)
                         navigation.pushNew(Config.Movie(it))
                     },
                 )
@@ -86,7 +84,6 @@ class DefaultRootComponent(
                     ctx = ctx,
                     onBackButtonClicked = navigation::pop,
                     onMovieSelected = {
-                        @OptIn(ExperimentalDecomposeApi::class)
                         navigation.pushNew(Config.Movie(it))
                     },
                     universeId = config.universeId,
@@ -97,7 +94,6 @@ class DefaultRootComponent(
                 DefaultUniversesComponent(
                     ctx = ctx,
                     onUniverseSelected = {
-                        @OptIn(ExperimentalDecomposeApi::class)
                         navigation.pushNew(Config.Movies(it))
                     }
                 )

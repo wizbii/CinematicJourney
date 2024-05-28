@@ -1,6 +1,5 @@
 package com.wizbii.cinematic.journey.presentation.screen.universes
 
-import androidx.compose.foundation.ExperimentalFoundationApi
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.PaddingValues
@@ -30,7 +29,6 @@ import com.wizbii.cinematic.journey.whenPlatform
 import com.wizbii.cinematicjourney.generated.resources.Res
 import com.wizbii.cinematicjourney.generated.resources.universes_ongoing
 import com.wizbii.cinematicjourney.generated.resources.universes_title
-import org.jetbrains.compose.resources.ExperimentalResourceApi
 import org.jetbrains.compose.resources.stringResource
 
 @Composable
@@ -48,7 +46,6 @@ fun UniversesScreen(component: UniversesComponent = PreviewUniversesComponent())
             .fillMaxSize()
             .nestedScroll(scrollBehavior.nestedScrollConnection),
         topBar = {
-            @OptIn(ExperimentalResourceApi::class)
             TopBarContent(
                 component = component.topBarComponent,
                 scrollBehavior = scrollBehavior,
@@ -67,7 +64,6 @@ fun UniversesScreen(component: UniversesComponent = PreviewUniversesComponent())
 
 }
 
-@OptIn(ExperimentalFoundationApi::class)
 @Composable
 private fun Content(
     modifier: Modifier = Modifier,
@@ -105,7 +101,6 @@ private fun Item(
 
     val universeStart = universe.startDate.year.toString()
 
-    @OptIn(ExperimentalResourceApi::class)
     val universeEnd = universe.endDate?.year?.toString()
         ?: stringResource(Res.string.universes_ongoing)
 

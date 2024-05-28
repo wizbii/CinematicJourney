@@ -4,11 +4,11 @@ import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.BoxWithConstraints
 import androidx.compose.foundation.layout.Column
-import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.ExperimentalLayoutApi
+import androidx.compose.foundation.layout.FlowRow
+import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.fillMaxWidth
-import androidx.compose.foundation.layout.FlowRow
 import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.size
@@ -16,11 +16,11 @@ import androidx.compose.foundation.layout.width
 import androidx.compose.foundation.layout.wrapContentSize
 import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.material.icons.Icons
-import androidx.compose.material.icons.filled.Wallet
 import androidx.compose.material.icons.automirrored.outlined.StarHalf
 import androidx.compose.material.icons.filled.Check
 import androidx.compose.material.icons.filled.Star
 import androidx.compose.material.icons.filled.Visibility
+import androidx.compose.material.icons.filled.Wallet
 import androidx.compose.material.icons.outlined.Star
 import androidx.compose.material.icons.outlined.Theaters
 import androidx.compose.material.icons.outlined.Timer
@@ -64,12 +64,11 @@ import com.wizbii.cinematic.journey.presentation.util.performHaptic
 import com.wizbii.cinematic.journey.presentation.util.toString
 import com.wizbii.cinematic.journey.whenPlatform
 import com.wizbii.cinematicjourney.generated.resources.Res
-import com.wizbii.cinematicjourney.generated.resources.movie_prerequisites_one
-import com.wizbii.cinematicjourney.generated.resources.movie_prerequisites_other
-import com.wizbii.cinematicjourney.generated.resources.movie_prerequisites_zero
+import com.wizbii.cinematicjourney.generated.resources.movie_prerequisites
+import com.wizbii.cinematicjourney.generated.resources.movie_prerequisites_none
 import kotlinx.coroutines.flow.Flow
 import kotlinx.coroutines.flow.StateFlow
-import org.jetbrains.compose.resources.ExperimentalResourceApi
+import org.jetbrains.compose.resources.pluralStringResource
 import org.jetbrains.compose.resources.stringResource
 import kotlin.math.ceil
 
@@ -297,13 +296,12 @@ private fun MoviePrerequisites(
     setMovieWatched: (MovieId, Boolean) -> Unit,
 ) {
 
-    // TODO Replace with plurals once implemented in resources library
-    @OptIn(ExperimentalResourceApi::class)
-    val prerequisitesTitleText = when (prerequisiteMovies.size) {
-        0    -> stringResource(Res.string.movie_prerequisites_zero)
-        1    -> stringResource(Res.string.movie_prerequisites_one)
-        else -> stringResource(Res.string.movie_prerequisites_other)
-    }
+    val prerequisitesTitleText =
+        if (prerequisiteMovies.isEmpty()) {
+            stringResource(Res.string.movie_prerequisites_none)
+        } else {
+            pluralStringResource(Res.plurals.movie_prerequisites, prerequisiteMovies.size)
+        }
 
     Column(
         modifier = modifier,
@@ -445,7 +443,7 @@ private fun TitleColumn(
                     val icon = when (score) {
                         in 0.0..2.0 -> Icons.Outlined.Star
                         in 2.0..8.0 -> Icons.AutoMirrored.Outlined.StarHalf
-                        else -> Icons.Filled.Star
+                        else        -> Icons.Filled.Star
                     }
 
                     Chip(

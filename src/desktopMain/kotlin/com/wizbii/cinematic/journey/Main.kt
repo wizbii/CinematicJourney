@@ -7,7 +7,6 @@ import androidx.compose.ui.window.application
 import androidx.compose.ui.window.rememberWindowState
 import co.touchlab.kermit.Logger
 import com.arkivanov.decompose.DefaultComponentContext
-import com.arkivanov.decompose.ExperimentalDecomposeApi
 import com.arkivanov.decompose.extensions.compose.lifecycle.LifecycleController
 import com.arkivanov.essenty.lifecycle.LifecycleRegistry
 import com.wizbii.cinematic.journey.core.koinAppDeclaration
@@ -18,7 +17,6 @@ import com.wizbii.cinematicjourney.generated.resources.app_name
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.runBlocking
 import kotlinx.coroutines.withContext
-import org.jetbrains.compose.resources.ExperimentalResourceApi
 import org.jetbrains.compose.resources.stringResource
 import org.koin.core.context.startKoin
 import java.awt.Dimension
@@ -26,7 +24,6 @@ import java.awt.Dimension
 private const val DEFAULT_WIDTH = 360
 private const val DEFAULT_HEIGHT = 600
 
-@OptIn(ExperimentalResourceApi::class)
 fun main() = runBlocking {
 
     Logger.setLogWriters(Slf4jLogWriter())
@@ -46,7 +43,6 @@ fun main() = runBlocking {
                 size = DpSize(DEFAULT_WIDTH.dp, DEFAULT_HEIGHT.dp),
             )
 
-        @OptIn(ExperimentalDecomposeApi::class)
         LifecycleController(lifecycle, windowState)
 
         Window(

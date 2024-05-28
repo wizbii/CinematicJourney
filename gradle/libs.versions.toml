@@ -1,7 +1,7 @@
 [versions]
 
 # Languages
-kotlin = "1.9.23"
+kotlin = "2.0.0"
 java = "17"
 
 # Tools
@@ -10,7 +10,7 @@ gradle = "8.7"
 # Plugins
 agp = "8.2.2"
 build-config = "5.3.5"
-compose = "1.6.2"
+compose = "1.6.10"
 kotlinx-atomicfu = "0.24.0"
 versions = "0.51.0"
 
@@ -21,21 +21,21 @@ android-sdk-target = "34"
 
 # Libraries
 androidx-activity-compose = "1.9.0"
-androidx-datastore = "1.1.0"
+androidx-datastore = "1.1.1"
 androidx-splashscreen = "1.0.1"
 coil = "3.0.0-alpha06"
-decompose = "3.0.0-beta01"
-essenty = "2.0.0-beta02"
-instantapps = "17.0.0"
+decompose = "3.0.0"
+essenty = "2.0.0"
+instantapps = "18.0.1"
 kermit = "2.0.3"
 koin = "3.5.6"
 konsist = "0.15.1"
-kotlinx-coroutines = "1.8.0"
-kotlinx-datetime = "0.5.0"
+kotlinx-coroutines = "1.8.1"
+kotlinx-datetime = "0.6.0"
 kotlinx-serialization = "1.6.3"
-ktor = "2.3.10"
+ktor = "2.3.11"
 logback = "1.5.6"
-material-kolor = "1.4.4"
+material-kolor = "1.6.1"
 okio = "3.9.0"
 slf4j-android = "2.0.13-0"
 sqldelight = "2.0.2"
@@ -45,9 +45,10 @@ android-application = { id = "com.android.application", version.ref = "agp" }
 build-config = { id = "com.github.gmazzo.buildconfig", version.ref = "build-config" }
 jetbrains-compose = { id = "org.jetbrains.compose", version.ref = "compose" }
 kotlin-multiplatform = { id = "org.jetbrains.kotlin.multiplatform", version.ref = "kotlin" }
+kotlin-plugin-atomicfu = { id = "org.jetbrains.kotlin.plugin.atomicfu", version.ref = "kotlin" }
+kotlin-plugin-compose = { id = "org.jetbrains.kotlin.plugin.compose", version.ref = "kotlin" }
+kotlin-plugin-serialization = { id = "org.jetbrains.kotlin.plugin.serialization", version.ref = "kotlin" }
 kotlinx-atomicfu = { id = "kotlinx-atomicfu", version.ref = "kotlinx-atomicfu" }
-kotlinx-atomicfu-internal = { id = "org.jetbrains.kotlin.plugin.atomicfu", version.ref = "kotlin" }
-kotlinx-serialization = { id = "org.jetbrains.kotlin.plugin.serialization", version.ref = "kotlin" }
 sqldelight = { id = "app.cash.sqldelight", version.ref = "sqldelight" }
 versions = { id = "com.github.ben-manes.versions", version.ref = "versions" }
 

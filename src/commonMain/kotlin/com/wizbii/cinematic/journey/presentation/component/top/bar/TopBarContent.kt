@@ -4,7 +4,6 @@ import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.automirrored.outlined.ArrowBack
 import androidx.compose.material.icons.filled.DarkMode
 import androidx.compose.material.icons.filled.LightMode
-import androidx.compose.material3.ExperimentalMaterial3Api
 import androidx.compose.material3.Icon
 import androidx.compose.material3.IconButton
 import androidx.compose.material3.MaterialTheme
@@ -21,10 +20,8 @@ import com.wizbii.cinematicjourney.generated.resources.Res
 import com.wizbii.cinematicjourney.generated.resources.topbar_back
 import com.wizbii.cinematicjourney.generated.resources.topbar_dark_mode
 import com.wizbii.cinematicjourney.generated.resources.topbar_light_mode
-import org.jetbrains.compose.resources.ExperimentalResourceApi
 import org.jetbrains.compose.resources.stringResource
 
-@OptIn(ExperimentalMaterial3Api::class)
 @Composable
 fun TopBarContent(
     component: TopBarComponent = PreviewTopBarComponent(),
@@ -74,7 +71,6 @@ private fun BackButton(
         onClick = onClick,
     ) {
 
-        @OptIn(ExperimentalResourceApi::class)
         Icon(
             contentDescription = stringResource(Res.string.topbar_back),
             imageVector = Icons.AutoMirrored.Outlined.ArrowBack,
@@ -111,7 +107,6 @@ private fun Actions(
             Icons.Default.DarkMode
         }
 
-    @OptIn(ExperimentalResourceApi::class)
     val darkModeText =
         if (isDarkMode) {
             stringResource(Res.string.topbar_light_mode)

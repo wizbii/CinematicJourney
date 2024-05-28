@@ -28,9 +28,10 @@ plugins {
     alias(libs.plugins.build.config)
     alias(libs.plugins.jetbrains.compose)
     alias(libs.plugins.kotlin.multiplatform)
+    alias(libs.plugins.kotlin.plugin.atomicfu)
+    alias(libs.plugins.kotlin.plugin.compose)
+    alias(libs.plugins.kotlin.plugin.serialization)
     alias(libs.plugins.kotlinx.atomicfu)
-    alias(libs.plugins.kotlinx.atomicfu.internal)
-    alias(libs.plugins.kotlinx.serialization)
     alias(libs.plugins.sqldelight)
     alias(libs.plugins.versions)
 }
