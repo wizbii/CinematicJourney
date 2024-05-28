@@ -168,6 +168,7 @@ android {
 compose.desktop {
     application {
         mainClass = "$packageId.MainKt"
+        buildTypes.release.proguard.isEnabled.set(false)
     }
 }
 
