@@ -27,7 +27,7 @@ jobs:
 
       - name: Test
         shell: bash
-        run: ./gradlew check --no-daemon
+        run: ./gradlew check --no-daemon --scan
 
       - name: Upload reports
         uses: actions/upload-artifact@v4
@@ -56,7 +56,7 @@ jobs:
 
       - name: Build App
         shell: bash
-        run: ./gradlew packageReleaseBundle --no-daemon
+        run: ./gradlew packageReleaseBundle --no-daemon --scan
 
       - if: ${{ inputs.isRelease }}
         name: Setup upload-keystore.jks
@@ -67,7 +67,7 @@ jobs:
       - if: ${{ inputs.isRelease }}
         name: Sign App
         shell: bash
-        run: ./gradlew signReleaseBundle --no-daemon
+        run: ./gradlew signReleaseBundle --no-daemon --scan
 
       - if: ${{ inputs.isRelease }}
         name: Publish App
@@ -112,7 +112,7 @@ jobs:
 
       - name: Build App
         shell: bash
-        run: ./gradlew packageReleaseUberJarForCurrentOS --no-daemon
+        run: ./gradlew packageReleaseUberJarForCurrentOS --no-daemon --scan
 
       - if: ${{ inputs.isRelease }}
         name: Upload Jar
@@ -151,7 +151,7 @@ jobs:
 
       - name: Apply Gradle Build version to XCode project
         shell: bash
-        run: ./gradlew setXcodeVersion --no-daemon
+        run: ./gradlew setXcodeVersion --no-daemon --scan
 
       - if: ${{ ! inputs.isRelease }}
         name: Build App
